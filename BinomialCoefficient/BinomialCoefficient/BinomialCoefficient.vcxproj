@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{db9c154b-38a5-437b-9a57-f1de505f0b91}</ProjectGuid>
-    <RootNamespace>LCM</RootNamespace>
+    <ProjectGuid>{5981dffe-ae00-4265-8342-2441e1b06169}</ProjectGuid>
+    <RootNamespace>BinomialCoefficient</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LCM.cpp" />
+    <ClCompile Include="BinomialCoefficient2.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
