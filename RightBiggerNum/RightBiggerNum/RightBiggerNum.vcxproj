@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b614e8b6-712f-4fb2-bfb8-3d5df1647432}</ProjectGuid>
-    <RootNamespace>StackSequence</RootNamespace>
+    <ProjectGuid>{633561de-b013-42f7-997d-435bea23eab7}</ProjectGuid>
+    <RootNamespace>RightBiggerNum</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="StackSequence.cpp" />
+    <ClCompile Include="RightBiggerNum.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
