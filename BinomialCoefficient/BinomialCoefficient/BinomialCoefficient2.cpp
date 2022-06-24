@@ -1,47 +1,34 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
 
-int Combination2(int n, int r)
-{
-	if (n <= r)
-	{
-		return 1;
-	}
-	else if (Combination2(n - 1, r) % 10007 == 0)
-	{
-		return n * (Combination2(n - 1, r) / 10007) / (n - r);
-	}
-	else
-	{
-		return n * Combination2(n - 1, r) / (n - r);
-	}
-}
-
+int* PT;
 int K, N;
 int main()
 {
-
 	scanf("%d %d", &N, &K);
 
-	int result = 1;
+	PT = new int[(N + 1) * (N + 2) / 2];
 
-	// result = Combination2(N, K);
-	
-	for (int i = K + 1; i <= N; ++i)
+	for (int i = 0; i <= N; ++i)
 	{
-		if (result % 10007 == 0)
+		for (int j = 0; j < i + 1; ++j)
 		{
-			result = i * result / (10007 * (i - K));
-		}
-		else
-		{
-			result = i * result / (i - K);
+			if (j == 0 || j == i)
+			{
+				PT[i * (i + 1) / 2 + j] = 1;
+				continue;
+			}
+
+			PT[i * (i + 1) / 2 + j] = PT[(i - 1) * i / 2 + j - 1] + PT[(i - 1) * i / 2 + j];
+			PT[i * (i + 1) / 2 + j] %= 10007;
 		}
 	}
+	
+	int result = PT[N * (N + 1) / 2 + K];
 
-	result %= 10007;
+	printf("%d", result % 10007);
 
-	printf("%d\n", result);
+	delete[] PT;
 
 	return 0;
 }
