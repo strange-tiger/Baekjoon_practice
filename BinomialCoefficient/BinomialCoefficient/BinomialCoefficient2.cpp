@@ -25,8 +25,20 @@ int main()
 
 	int result = 1;
 
-	result = Combination2(N, K);
+	// result = Combination2(N, K);
 	
+	for (int i = K + 1; i <= N; ++i)
+	{
+		if (result % 10007 == 0)
+		{
+			result = i * result / (10007 * (i - K));
+		}
+		else
+		{
+			result = i * result / (i - K);
+		}
+	}
+
 	result %= 10007;
 
 	printf("%d\n", result);
