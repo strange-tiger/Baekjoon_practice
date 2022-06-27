@@ -22,10 +22,11 @@ int main()
 	for (int i = 0; i < M; ++i)
 	{
 		std::cin >> num;
-		int less = std::lower_bound(0, N, num);
-		int more = std::upper_bound(0, N, num);
+		
+		int* lowerBound = std::lower_bound(card, card + N, num);
+		int* upperBound = std::upper_bound(card, card + N, num);
 
-		std::cout << more - less << ' ';
+		std::cout << upperBound - lowerBound << ' ';
 	}
 
 	return 0;
