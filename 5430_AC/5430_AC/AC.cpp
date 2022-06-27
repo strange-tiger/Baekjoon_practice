@@ -19,13 +19,14 @@ int main()
 	char digit;
 	int cnt, size, xsize;
 	bool isError;
+	bool order;
 	while (T--)
 	{
 		cin >> cmd;
 		cin >> n;
-		
-		cnt = 0;
-		while (cnt < n)
+		order = true;
+
+		do
 		{
 			cin >> digit;
 			if (isdigit(digit))
@@ -34,23 +35,22 @@ int main()
 			}
 			else if ('[' != digit)
 			{
-				x.push_back(stoi(num));
-				num = "";
-				++cnt;
+				if (!num.empty())
+				{
+					x.push_back(stoi(num));
+					num = "";
+				}
 			}
-		}
+		} while (']' != digit);
 
 		isError = false;
 		size = cmd.size();
+		xsize = x.size();
 		for (int i = 0; i < size; ++i)
 		{
 			if ('R' == cmd[i])
 			{
-				xsize = x.size();
-				for (int j = 0; j < xsize / 2; ++j)
-				{
-					swap(x[j], x[xsize - 1 - j]);
-				}
+				order = !order;
 			}
 			else if ('D' == cmd[i])
 			{
@@ -60,7 +60,16 @@ int main()
 					isError = true;
 					break;
 				}
-				x.pop_front();
+
+				if (order)
+				{
+					x.pop_front();
+				}
+				else
+				{
+					x.pop_back();
+				}
+				--xsize;
 			}
 		}
 
@@ -68,11 +77,23 @@ int main()
 		{
 			xsize = x.size();
 			cout << '[';
-			for (int i = 0; i < xsize; ++i)
+			if (order)
 			{
-				cout << x[i];
-				if (i != xsize - 1) cout << ',';
+				for (int i = 0; i < xsize; ++i)
+				{
+					cout << x[i];
+					if (i != xsize - 1) cout << ',';
+				}
 			}
+			else
+			{
+				for (int i = xsize - 1; i >= 0; --i)
+				{
+					cout << x[i];
+					if (i != 0) cout << ',';
+				}
+			}
+			
 			cout << ']';
 			cout << '\n';
 		}
