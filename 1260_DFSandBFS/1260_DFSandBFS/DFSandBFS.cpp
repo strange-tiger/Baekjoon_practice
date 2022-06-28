@@ -38,7 +38,7 @@ void dfs()
 		// cout << node << ' ';
 
 		// 3-2. 다음으로 방문할 정점을 찾는다.
-		for (int nextNode : graph[node]) // range-based for loop
+		for (int nextNode : graph[node])
 		{
 			if (!isVisited[nextNode])
 			{
@@ -98,12 +98,12 @@ int main()
 	}
 
 	// 2. 작은 정점부터 방문시키기 위해 정렬
-	for (int i = 0; i < N; ++i)
+	for (int i = 1; i <= N; ++i)
 		sort(graph[i].begin(), graph[i].end(), cmp);
 	// 3. 탐색 : DFS&BFS
 	dfs();
 	// 2. 작은 정점부터 방문시키기 위해 정렬
-	for (int i = 0; i < N; ++i)
+	for (int i = 1; i <= N; ++i)
 		sort(graph[i].begin(), graph[i].end());
 	// 3. 탐색 : DFS&BFS
 	bfs();
