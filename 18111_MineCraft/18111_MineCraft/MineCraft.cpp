@@ -1,9 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
-#define _INF 131072
+#define _INF 64000000
 
 int map[500][500] = { 0 };
-bool smooth[500][500] = { false };
 
 int N, M, B, time = 0;
 int main()
@@ -18,75 +17,37 @@ int main()
 		}
 	}
 
-	int block[257] = { 0 };
-	for (int h = 0; h <= 256; ++h)
-	{
-		block[h] = B;
-	}
-
-	int time[257] = { 0 };
-	for (int h = 0; h <= 256; ++h)
-	{
-		for (int r = 0; r < N; ++r)
-		{
-			for (int c = 0; c < M; ++c)
-			{
-				if (h < map[r][c])
-				{
-					int cnt = map[r][c];
-					while (h < cnt)
-					{
-						time[h] += 2;
-						++block[h];
-						--cnt;
-					}
-				}
-			}
-		}
-	}
-
-	int lessTime = _INF;
+	int leastTime = _INF;
 	int maxHeight = 0;
 	for (int h = 0; h <= 256; ++h)
 	{
+		int bld = 0;
+		int dig = 0;
 		for (int r = 0; r < N; ++r)
 		{
 			for (int c = 0; c < M; ++c)
 			{
-				if (h > map[r][c])
-				{
-					int cnt = map[r][c];
-					while (h > cnt)
-					{
-						if (block[h] > 0)
-						{
-							time[h] += 1;
-							--block[h];
-							++cnt;
-						}
-						else
-						{
-							time[h] = _INF;
+				int irreg = map[r][c] - h;
 
-							break;
-						}
-					}
-				}
+				if (irreg > 0)
+					dig += irreg;
+				else if (irreg < 0)
+					bld -= irreg;
 			}
 		}
 
-		if (lessTime > time[h])
+		if (dig + B >= bld)
 		{
-			lessTime = time[h];
-			maxHeight = h;
-		}
-		else if (lessTime == time[h])
-		{
-			maxHeight = h;
+			int time = 2 * dig + bld;
+			if (leastTime >= time)
+			{
+				leastTime = time;
+				maxHeight = h;
+			}
 		}
 	}
 
-	printf("%d %d", lessTime, maxHeight);
+	printf("%d %d\n", leastTime, maxHeight);
 
 	return 0;
 }
