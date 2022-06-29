@@ -12,7 +12,6 @@ int count[100001] = { 0 };
 
 void bfs()
 {
-
 	std::queue<int> q;
 	q.push(R);
 	isVisited[R] = true;
@@ -24,7 +23,7 @@ void bfs()
 		q.pop();
 		++cnt;
 		count[node] = cnt;
-		
+
 		for (int nextNode : graph[node])
 		{
 			if (!isVisited[nextNode])
@@ -35,6 +34,11 @@ void bfs()
 		}
 	}
 
+}
+
+bool cmp(int a, int b)
+{
+	return a > b;
 }
 
 int main()
@@ -51,7 +55,7 @@ int main()
 
 	for (int i = 1; i <= N; ++i)
 	{
-		sort(graph[i].begin(), graph[i].end());
+		sort(graph[i].begin(), graph[i].end(), cmp);
 	}
 
 	bfs();
