@@ -109,3 +109,109 @@ int main()
 
 	return 0;
 }
+
+#pragma region 최서연_코드
+/*
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <utility>
+#include <queue>
+
+int grid[1000][1000] = { 0 };
+
+int n, m;
+int notRipCount;
+int result;
+
+std::queue<std::pair<int, int>> bfs;
+
+void BFS()
+{
+	while (bfs.empty() == false)
+	{
+		std::pair<int, int> data = bfs.front();
+		bfs.pop();
+
+		if (result < grid[data.first][data.second])
+			result = grid[data.first][data.second];
+
+		//아래쪽
+		if (data.first < n - 1 && grid[data.first + 1][data.second] == 0)
+		{
+			bfs.push({ data.first + 1, data.second });
+			grid[data.first + 1][data.second] =
+				grid[data.first][data.second] + 1;
+
+			--notRipCount;
+		}
+		//오른쪽
+		if (data.second < m - 1 && grid[data.first][data.second + 1] == 0)
+		{
+			bfs.push({ data.first, data.second + 1 });
+			grid[data.first][data.second + 1] =
+				grid[data.first][data.second] + 1;
+
+			--notRipCount;
+		}
+		//위쪽
+		if (data.first > 0 && grid[data.first - 1][data.second] == 0)
+		{
+			bfs.push({ data.first - 1, data.second });
+			grid[data.first - 1][data.second] =
+				grid[data.first][data.second] + 1;
+
+			--notRipCount;
+		}
+		//왼쪽
+		if (data.second > 0 && grid[data.first][data.second - 1] == 0)
+		{
+			bfs.push({ data.first, data.second - 1 });
+			grid[data.first][data.second - 1] =
+				grid[data.first][data.second] + 1;
+
+			--notRipCount;
+		}
+	}
+}
+
+int main()
+{
+	scanf("%d %d", &m, &n);
+	notRipCount = m * n;
+
+	int temp;
+	for (int i = 0; i < n; ++i)
+	{
+		for (int j = 0; j < m; ++j)
+		{
+			scanf("%d", &temp);
+
+			grid[i][j] = temp;
+
+			if (temp == -1)
+			{
+				--notRipCount;
+			}
+			else if (temp == 1)
+			{
+				--notRipCount;
+				bfs.push({ i, j });
+			}
+		}
+	}
+
+	BFS();
+
+	if (notRipCount <= 0)
+	{
+		printf("%d", result - 1);
+	}
+	else
+	{
+		printf("-1");
+	}
+
+	return 0;
+}
+*/
+#pragma endregion
