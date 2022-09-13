@@ -1,49 +1,80 @@
-#include <iostream>
-#include <deque>
-#include <algorithm>
+#include <cstdio>
+#include <vector>
 using namespace std;
 
+vector<int> arr;
+void Swap(int& left, int right)
+{
+	int temp;
+
+	temp = arr[left - 1];
+	arr[left - 1] = arr[right - 1];
+	arr[right - 1] = temp;
+
+	left = right;
+}
+
 int N, x;
-deque<int> arr;
 int main()
 {
-	ios::sync_with_stdio(false);
-	cin.tie(nullptr);
-	cout.tie(nullptr);
-
-	cin >> N;
+	scanf("%d", &N);
 	while (N--)
 	{
-		cin >> x;
+		scanf("%d", &x);
 		if (x != 0)
 		{
-			if (arr.size() == 0)
+			arr.push_back(x);
+
+			int index = arr.size();
+
+			while (index > 1)
 			{
-				arr.push_back(x);
-			}
-			else if (x >= arr.back())
-			{
-				arr.push_back(x);
-			}
-			else
-			{
-				int n = arr.size();
-				while (n > 0 && x < arr[n - 1])
+				int parent = index / 2;
+
+				if (arr[parent - 1] >= x)
 				{
-					n--;
+					break;
 				}
 
-				arr.insert(arr.begin() + n, x);
+				Swap(index, parent);
 			}
 		}
 		else if (!arr.empty())
 		{
-			cout << arr.back() << '\n';
+			printf("%d\n", arr.front());
+			arr[0] = arr.back();
 			arr.pop_back();
+
+			int size = arr.size();
+			int index = 1;
+
+			while (index < size)
+			{
+				int left = index * 2;
+				int right = left + 1;
+
+				if (left > size)
+				{
+					break;
+				}
+
+				int child = left;
+				if (right <= size && arr[right - 1] > arr[left - 1])
+				{
+					child = right;
+				}
+
+				if (arr[index - 1] >= arr[child - 1])
+				{
+					break;
+				}
+
+				Swap(index, child);
+			}
 		}
 		else
 		{
-			cout << x << '\n';
+			printf("0\n");
 		}
 	}
 
