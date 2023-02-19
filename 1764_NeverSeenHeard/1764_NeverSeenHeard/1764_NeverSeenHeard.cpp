@@ -1,33 +1,18 @@
 #include <iostream>
-#include <queue>
+#include <algorithm>
+#include <vector>
 #include <map>
 using namespace std;
 
-void insertionSort(string* arr, int num)
-{
-	string tmp;
-
-	for (int i = 0; i < num - 1; ++i)
-	{
-		for (int j = i + 1; j > 0 && arr[j].compare(arr[j - 1]) < 0; --j)
-		{
-			tmp = arr[j];
-			arr[j] = arr[j - 1];
-			arr[j - 1] = tmp;
-		}
-	}
-}
-
-int N, M, i, cnt = 0;
+int N, M, i;
 string name;
 map <string, bool> neverSeen;
-string neverHeard[500000];
-queue<string> neverSeenHeard;
+vector<string> neverSeenHeard;
 int main(void)
 {
 	ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
+	cin.tie(0);
+	cout.tie(0);
 
 	cin >> N >> M;
 
@@ -40,27 +25,15 @@ int main(void)
 	for (i = 0; i < M; ++i)
 	{
 		cin >> name;
-		neverHeard[i] = name;
+
+		if (neverSeen[name])
+			neverSeenHeard.push_back(name);
 	}
+	sort(neverSeenHeard.begin(), neverSeenHeard.end());
 
-	insertionSort(neverHeard, M);
-
-	for (i = 0; i < M; ++i)
-	{
-		if (neverSeen[neverHeard[i]])
-		{
-			++cnt;
-			neverSeenHeard.push(neverHeard[i]);
-		}
-	}
-
-	cout << cnt << '\n';
-
-	while (!neverSeenHeard.empty())
-	{
-		cout << neverSeenHeard.front() << '\n';
-		neverSeenHeard.pop();
-	}
+	cout << neverSeenHeard.size() << '\n';
+	for (string str : neverSeenHeard)
+		cout << str << '\n';
 
 	return 0;
 }
