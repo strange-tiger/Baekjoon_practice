@@ -1,4 +1,6 @@
-#include <iostream>
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <vector>
 #include <math.h>
 using namespace std;
 
@@ -6,19 +8,40 @@ int N;
 int Min = 1001;
 int S[20][20];
 bool team[20] = { false };
+vector<int> teamOne;
+vector<int> teamTwo;
+
+int sumOne;
+int sumTwo;
 int calculate()
 {
-	int sumOne = 0;
-	int sumTwo = 0;
+	sumOne = 0;
+	sumTwo = 0;
+
+	teamOne.clear();
+	teamTwo.clear();
 
 	for (int i = 0; i < N; ++i)
 	{
-		for (int j = 0; j < N; ++j)
+		if (team[i])
+			teamOne.push_back(i);
+		else
+			teamTwo.push_back(i);
+	}
+
+	for (int i : teamOne)
+	{
+		for (int j : teamOne)
 		{
-			if (team[i] && team[j])
-				sumOne += S[i][j];
-			else if (!(team[i] || team[j]))
-				sumTwo += S[i][j];
+			sumOne += S[i][j];
+		}
+	}
+
+	for (int i : teamTwo)
+	{
+		for (int j : teamTwo)
+		{
+			sumTwo += S[i][j];
 		}
 	}
 
@@ -50,15 +73,15 @@ void split(int num)
 
 int main(void)
 {
-	cin >> N;
+	scanf("%d", &N);
 
 	for (int i = 0; i < N; ++i)
 		for (int j = 0; j < N; ++j)
-			cin >> S[i][j];
+			scanf("%d", &S[i][j]);
 
 	split(0);
 
-	cout << Min;
+	printf("%d", Min);
 
 	return 0;
 }
