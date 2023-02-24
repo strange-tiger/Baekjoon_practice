@@ -4,32 +4,28 @@ using namespace std;
 int N;
 int white = 0, blue = 0;
 bool paper[128][128] = { false };
-int divide(int x, int y, int n)
+void divide(int x, int y, int n)
 {
-	if (n == 1)
-		return paper[y][x];
+	int tmp = 0;
 
-	int half = n / 2;
+	for (int i = y; i < y + n; ++i)
+		for (int j = x; j < x + n; ++j)
+			if (paper[i][j])
+				++tmp;
 
-	if ((divide(x, y, half) == 1)
-		&& (divide(x + half, y, half) == 1)
-		&& (divide(x, y + half, half) == 1)
-		&& (divide(x + half, y + half, half) == 1))
+	if (tmp == 0)
+		++white;
+	else if (tmp == n * n)
+		++blue;
+	else
 	{
-		blue -= 3;
-		return 1;
-	}
+		int half = n / 2;
 
-	if ((divide(x, y, half) == 0)
-		&& (divide(x + half, y, half) == 0)
-		&& (divide(x, y + half, half) == 0)
-		&& (divide(x + half, y + half, half) == 0))
-	{
-		white -= 3;
-		return 0;
+		divide(x, y, half);
+		divide(x + half, y, half);
+		divide(x, y + half, half);
+		divide(x + half, y + half, half);
 	}
-
-	return -1;
 }
 
 int main(void)
@@ -37,17 +33,8 @@ int main(void)
 	cin >> N;
 
 	for (int i = 0; i < N; ++i)
-	{
 		for (int j = 0; j < N; ++j)
-		{
 			cin >> paper[i][j];
-
-			if (paper[i][j])
-				++blue;
-			else
-				++white;
-		}
-	}
 
 	divide(0, 0, N);
 
