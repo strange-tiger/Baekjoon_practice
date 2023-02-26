@@ -2,62 +2,37 @@
 using namespace std;
 
 int a, b, c;
-int w[101][101][101] = { 0 };
-void W()
+int w[21][21][21] = { 0 };
+int W(int i, int j, int k)
 {
-	int A, B, C;
-	for (int i = -50; i < 21; ++i)
+	if (i <= 0 || j <= 0 || k <= 0)
+		return 1;
+	
+	if (i > 20 || j > 20 || k > 20)
+		return W(20, 20, 20);
+	
+	if (w[i][j][k])
+		return w[i][j][k];
+
+	if (i < j && j < k)
 	{
-		for (int j = -50; j < 21; ++j)
-		{
-			for (int k = -50; k < 21; ++k)
-			{
-				A = i + 50;
-				B = j + 50;
-				C = k + 50;
-
-				if (i <= 0 || j <= 0 || k <= 0)
-					w[A][B][C] = 1;
-				else if (i < j && j < k)
-					w[A][B][C] = w[A][B][C - 1] + w[A][B - 1][C - 1] - w[A][B - 1][C];
-				else
-					w[A][B][C] = w[A - 1][B][C] + w[A - 1][B - 1][C] + w[A - 1][B][C - 1] - w[A - 1][B - 1][C - 1];
-			}
-		}
+		w[i][j][k] = W(i, j, k - 1) + W(i, j - 1, k - 1) - W(i, j - 1, k);
+		return w[i][j][k];
 	}
-
-	for (int i = 21; i < 51; ++i)
-	{
-		for (int j = 21; j < 51; ++j)
-		{
-			for (int k = 21; k < 51; ++k)
-			{
-				A = i + 50;
-				B = j + 50;
-				C = k + 50;
-
-				if (i <= 0 || j <= 0 || k <= 0)
-					w[A][B][C] = 1;
-				else if (i > 20 || j > 20 || k > 20)
-					w[A][B][C] = w[70][70][70];
-				else if (i < j && j < k)
-					w[A][B][C] = w[A][B][C - 1] + w[A][B - 1][C - 1] - w[A][B - 1][C];
-				else
-					w[A][B][C] = w[A - 1][B][C] + w[A - 1][B - 1][C] + w[A - 1][B][C - 1] - w[A - 1][B - 1][C - 1];
-			}
-		}
-	}
+	
+	w[i][j][k] = W(i - 1, j, k) + W(i - 1, j - 1, k) + W(i - 1, j, k - 1) - W(i - 1, j - 1, k - 1);
+	return w[i][j][k];
 }
 
 int main(void)
 {
-	W();
+	w[0][0][0] = 1;
 
 	cin >> a >> b >> c;
 	
 	while (a != -1 || b != -1 || c != -1)
 	{
-		cout << "w(" << a << ", " << b << ", " << c << ") = " << w[a + 50][b + 50][c + 50] << '\n';
+		cout << "w(" << a << ", " << b << ", " << c << ") = " << W(a, b, c) << '\n';
 
 		cin >> a >> b >> c;
 	}
