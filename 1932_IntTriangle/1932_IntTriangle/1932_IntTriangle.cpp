@@ -1,28 +1,32 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int n;
+int n, tmp;
 int Max = 0;
-int sum[500][501] = { 0 };
+vector<int> sum[500];
 
 int main(void)
 {
 	cin >> n;
 
-	cin >> sum[0][0];
+	cin >> tmp;
+	sum[0].push_back(tmp);
 
 	for (int i = 1; i < n; ++i)
 	{
 		for (int j = 0; j < i + 1; ++j)
 		{
-			cin >> sum[i][j];
+			cin >> tmp;
 
 			if (j == 0)
-				sum[i][j] += sum[i - 1][j];
+				tmp += sum[i - 1][j];
 			else if (j == i)
-				sum[i][j] += sum[i - 1][j - 1];
+				tmp += sum[i - 1][j - 1];
 			else
-				sum[i][j] += max(sum[i - 1][j], sum[i - 1][j - 1]);
+				tmp += max(sum[i - 1][j], sum[i - 1][j - 1]);
+
+			sum[i].push_back(tmp);
 		}
 	}
 
