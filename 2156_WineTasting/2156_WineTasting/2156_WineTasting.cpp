@@ -2,33 +2,27 @@
 using namespace std;
 
 int n;
-int Max = 0;
-int sum[10000];
-int wine[10000];
+int sum[10001];
+int wine[10001];
 int main(void)
 {
 	cin >> n;
 
-	for (int i = 0; i < n; ++i)
+	for (int i = 1; i <= n; ++i)
 	{
 		cin >> wine[i];
 		sum[i] = wine[i];
 	}
 
-	sum[1] += sum[0];
-	sum[2] += max(wine[0], wine[1]);
-
-	Max = max(sum[2], max(sum[1], sum[0]));
-
-	for (int i = 3; i < n; ++i)
+	sum[0] = 0;
+	sum[2] = sum[1] + wine[2];
+	for (int i = 3; i <= n; ++i)
 	{
 		sum[i] += max(sum[i - 2], wine[i - 1] + sum[i - 3]);
-
-		if (Max < sum[i])
-			Max = sum[i];
+		sum[i] = max(sum[i - 1], sum[i]);
 	}
 
-	cout << Max;
+	cout << sum[n];
 
 	return 0;
 }
