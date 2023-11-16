@@ -15,6 +15,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="18110_solvedac_62131670_homework2022.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="18110_solvedac.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
