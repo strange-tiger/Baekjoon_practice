@@ -48,16 +48,22 @@ int main()
 
 			continue;
 		}
+		else if (cutCnt < 2 * cut)
+		{
+			++cutCnt;
+
+			bigPq.pop();
+			smallPq.pop();
+			
+			continue;
+		}
 
 		if (bigPq.top() == smallPq.top())
-		{
+			diffSum += diff;
+		else if (diff != bigPq.top())
 			diffSum += bigPq.top();
-		}
-		else
-		{
-			diffSum += bigPq.top();
+		else if (diff != smallPq.top())
 			diffSum += smallPq.top();
-		}
 
 		bigPq.pop();
 		smallPq.pop();
