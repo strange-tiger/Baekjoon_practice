@@ -21,5 +21,8 @@
     <ClCompile Include="18110_solvedac.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="27866_character&amp;string.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
