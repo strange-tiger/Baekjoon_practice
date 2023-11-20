@@ -12,7 +12,7 @@ priority_queue<int, vector<int>, greater<int>> bigPq;
 priority_queue<int> smallPq;
 
 int diffSum = 0;
-int result = 0;
+int sumGrade = 0;
 float fResult;
 
 int diff = 0;
@@ -23,7 +23,7 @@ int main()
 
 	if (N == 0)
 	{
-		cout << result;
+		cout << sumGrade;
 		return 0;
 	}
 
@@ -70,10 +70,10 @@ int main()
 	}
 
 	fResult = (float) diffSum / (N - 2 * cut);
-	result = (int) fResult;
+	sumGrade = (int) fResult;
 
-	if (fResult - result >= 0.5f)
-		++result;
+	if (fResult - sumGrade >= 0.5f)
+		++sumGrade;
 
-	cout << result;
+	cout << sumGrade;
 }
