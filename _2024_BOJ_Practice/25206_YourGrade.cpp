@@ -6,7 +6,7 @@ float sumGrade = 0;
 float sumCredit = 0;
 float courseCredit = 0;
 float courseGradeNum = 0;
-char courseGradeWord[2] = {};
+string courseGradeWord;
 string name;
 
 int main()
@@ -20,24 +20,17 @@ int main()
 
 		sumCredit += courseCredit;
 
-		switch (courseGradeWord[0])
-		{
-			case 'A' :
-				courseGradeNum = 4;
-			break;
-			case 'B':
-				courseGradeNum = 3;
-			break;
-			case 'C':
-				courseGradeNum = 2;
-			break;
-			case 'D':
-				courseGradeNum = 1;
-			break;
-			default :
-				continue;
-			break;
-		}
+		if (courseGradeWord[0] == 'F')
+			continue;
+
+		if (courseGradeWord[0] == 'A') 
+			courseGradeNum = 4;
+		else if (courseGradeWord[0] == 'B') 
+			courseGradeNum = 3;
+		else if (courseGradeWord[0] == 'C') 
+			courseGradeNum = 2;
+		else 
+			courseGradeNum = 1;
 
 		if (courseGradeWord[1] == '+')
 			courseGradeNum += 0.5;
@@ -45,6 +38,8 @@ int main()
 		sumGrade += courseCredit * courseGradeNum;
 	}
 
+	cout << fixed;
+	cout.precision(6);
 	cout << sumGrade / sumCredit;
 
 	return 0;
