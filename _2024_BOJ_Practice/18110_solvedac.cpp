@@ -3,7 +3,7 @@
 using namespace std;
 
 int N = 0;
-int cnt = 0;
+int j = 0;
 int cut = 0;
 int cutCnt = 0;
 float fCut;
@@ -33,9 +33,9 @@ int main()
 	if (fCut - cut >= 0.5f)
 		++cut;
 
-	while (N > cnt)
+	while (N > j)
 	{
-		++cnt;
+		++j;
 
 		cin >> diff;
 		

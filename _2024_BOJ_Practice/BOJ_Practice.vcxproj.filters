@@ -24,5 +24,14 @@
     <ClCompile Include="27866_character&amp;string.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="10988_CheckPalindrome.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="25206_YourGrade.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10798_VerticalReading.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

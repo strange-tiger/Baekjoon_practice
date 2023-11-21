@@ -3,18 +3,18 @@ using namespace std;
 
 string S;
 int length = 0;
-int cnt = 0;
+int j = 0;
 
 int main()
 {
 	cin >> S;
 
 	length = S.size();
-	cnt = length / 2;
+	j = length / 2;
 
-	while (cnt--)
+	while (j--)
 	{
-		if (S[cnt] != S[length - cnt - 1])
+		if (S[j] != S[length - j - 1])
 		{
 			cout << 0;
 			return 0;

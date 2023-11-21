@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int cnt = 0;
+int j = 0;
 float sumGrade = 0;
 float sumCredit = 0;
 float courseCredit = 0;
@@ -11,7 +11,7 @@ string name;
 
 int main()
 {
-	while (cnt++ < 20)
+	while (j++ < 20)
 	{
 		cin >> name >> courseCredit >> courseGradeWord;
 
