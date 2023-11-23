@@ -45,7 +45,7 @@
     <ClCompile Include="11005_BaseConversion_ltoa.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="11659_SectionSum.cpp">
+    <ClCompile Include="11659_SectionSum4.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
