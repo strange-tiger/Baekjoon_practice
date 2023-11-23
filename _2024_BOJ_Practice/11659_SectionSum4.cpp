@@ -7,6 +7,10 @@ int sum[100001] = { 0, };
 
 int main()
 {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	cin >> N >> M;
 
 	for (int k = 1; k <= N; ++k)
@@ -18,7 +22,7 @@ int main()
 	while (M--)
 	{
 		cin >> i >> j;
-		cout << sum[j] - sum[i - 1] << endl;
+		cout << sum[j] - sum[i - 1] << '\n';
 	}
 
 	return 0;
