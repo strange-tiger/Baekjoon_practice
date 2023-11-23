@@ -3,7 +3,8 @@ using namespace std;
 
 int N, M;
 int num[100001] = { 0, };
-int i, j;
+int i, j, k;
+int I, J;
 int sum = 0;
 
 int main()
@@ -15,11 +16,38 @@ int main()
 
 	while (M--)
 	{
-		sum = 0;
 		cin >> i >> j;
 
-		for (i; i <= j; ++i)
-			sum += num[i - 1];
+		if (sum == 0)
+		{
+			for (k = i; k <= j; ++k)
+				sum += num[k - 1];
+		}
+		else
+		{
+			if (i < I)
+			{
+				for (k = i; k < I; ++k)
+					sum += num[k - 1];
+			}
+			else
+			{
+				for (k = I; k < i; ++k)
+					sum -= num[k - 1];
+			}
+			
+			if (j < J)
+			{
+				for (k = J; k > j; --k)
+					sum -= num[k - 1];
+			}
+			else
+			{
+				for (k = j; k > J; --k)
+					sum += num[k - 1];
+			}
+		}
+		I = i, J = j;
 
 		cout << sum << endl;
 	}
