@@ -54,5 +54,8 @@
     <ClCompile Include="2720_LaundryOwnerDonghyuk.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2903_CenterMovementAlgorithm.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
