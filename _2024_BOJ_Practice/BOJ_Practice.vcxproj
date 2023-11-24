@@ -154,6 +154,7 @@
     <ClCompile Include="25206_YourGrade.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="2720_LaundryOwnerDonghyuk.c" />
     <ClCompile Include="2745_BaseConversion.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

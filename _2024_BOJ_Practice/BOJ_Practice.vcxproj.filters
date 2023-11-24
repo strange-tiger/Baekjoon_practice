@@ -51,5 +51,8 @@
     <ClCompile Include="11659_SectionSum4.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2720_LaundryOwnerDonghyuk.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
