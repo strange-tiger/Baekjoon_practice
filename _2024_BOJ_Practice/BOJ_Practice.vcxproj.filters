@@ -60,5 +60,8 @@
     <ClCompile Include="2501_SearchDivisor.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="27323_Rectangle.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
