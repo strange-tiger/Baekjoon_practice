@@ -66,5 +66,8 @@
     <ClCompile Include="9506_DivisorSum.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="15894_MathIsAthletic.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
