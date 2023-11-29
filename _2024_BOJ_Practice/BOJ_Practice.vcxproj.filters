@@ -72,5 +72,8 @@
     <ClCompile Include="9063_Ground.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="19532_MathOnlineClass.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
