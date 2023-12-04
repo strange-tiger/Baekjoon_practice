@@ -145,6 +145,7 @@
     <ClCompile Include="11659_SectionSum4.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="14940_EasyShortestDistance.cpp" />
     <ClCompile Include="15894_MathIsAthletic.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

@@ -75,5 +75,8 @@
     <ClCompile Include="19532_MathOnlineClass.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="14940_EasyShortestDistance.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
