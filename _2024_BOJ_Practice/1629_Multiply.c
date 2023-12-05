@@ -2,37 +2,27 @@
 #include <stdio.h>
 
 int A, B, C;
-long long interlude[32];
-long long result = 0;
+
+long long int multiply(long long int x)
+{
+	if (x == 1)
+		return A % C;
+
+	long long int interlude = multiply(x / 2) % C;
+
+	interlude = interlude * interlude % C;
+
+	if (x % 2 == 0)
+		return interlude;
+	else
+		return interlude * A % C;
+}
+
 int main()
 {
 	scanf("%d %d %d", &A, &B, &C);
 
-	interlude[0] = A % C;
-
-	int cnt = 1;
-	int i = 1;
-	for (i; cnt < B / 2; ++i)
-	{
-		cnt *= 2;
-		interlude[i] = interlude[i - 1] * interlude[i - 1] % C;
-	}
-
-	result = interlude[i - 1];
-
-	B = B - cnt;
-
-	while (B > 0)
-	{
-		for (i = 0, cnt = 1; cnt < B; ++i)
-			cnt *= 2;
-
-		result = result * interlude[i] % C;
-
-		B = B - cnt;
-	}
-
-	printf("%lld", result);
+	printf("%lld", multiply(B));
 
 	return 0;
 }
