@@ -5,21 +5,20 @@
 using namespace std;
 
 int N, M;
-int s, e, cost;
+int s, e, c;
+vector<int> cost(1001, INF);
 vector<pair<int, int>> bus[1001];
+priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> heap;
 
-vector<int> dijkstra(int start, int num)
+void dijkstra(int start)
 {
-	vector<int> cost(num + 1, INF);
-	priority_queue<pair<int, int>> heap;
-
 	cost[start] = 0;
 	heap.push({ 0, start });
 
 	int curCost, curCity, nxtCost, nxtCity;
 	while (!heap.empty())
 	{
-		curCost = -heap.top().first;
+		curCost = heap.top().first;
 		curCity = heap.top().second;
 		heap.pop();
 
@@ -31,12 +30,10 @@ vector<int> dijkstra(int start, int num)
 			if (nxtCost < cost[nxtCity])
 			{
 				cost[nxtCity] = nxtCost;
-				heap.push({ -nxtCost, nxtCity });
+				heap.push({ nxtCost, nxtCity });
 			}
 		}
 	}
-
-	return cost;
 }
 
 int main()
@@ -50,13 +47,13 @@ int main()
 	
 	while (M--)
 	{
-		cin >> s >> e >> cost;
-		bus[s].push_back({ e, cost });
+		cin >> s >> e >> c;
+		bus[s].push_back({ e, c });
 	}
 
 	cin >> s >> e;
 
-	vector<int> cost = dijkstra(s, N);
+	dijkstra(s);
 
 	cout << cost[e];
 
