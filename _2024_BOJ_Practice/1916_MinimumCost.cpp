@@ -1,4 +1,5 @@
-﻿#include <iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS 
+#include <cstdio>
 #include <queue>
 #include <vector>
 #define INF 100000001
@@ -22,6 +23,9 @@ void dijkstra(int start)
 		curCity = heap.top().second;
 		heap.pop();
 
+		if (cost[curCity] < curCost)
+			continue;
+
 		for (int i = 0; i < bus[curCity].size(); ++i)
 		{
 			nxtCost = curCost + bus[curCity][i].second;
@@ -38,24 +42,20 @@ void dijkstra(int start)
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
-	
-	cin >> N;
-	cin >> M;
+	scanf("%d", &N);
+	scanf("%d", &M);
 	
 	while (M--)
 	{
-		cin >> s >> e >> c;
+		scanf("%d %d %d", &s, &e, &c);
 		bus[s].push_back({ e, c });
 	}
 
-	cin >> s >> e;
+	scanf("%d %d", &s, &e);
 
 	dijkstra(s);
 
-	cout << cost[e];
+	printf("%d", cost[e]);
 
 	return 0;
 }
