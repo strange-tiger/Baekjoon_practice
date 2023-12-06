@@ -193,6 +193,7 @@
     <ClCompile Include="2903_CenterMovementAlgorithm.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="7785_WhoInCompany.cpp" />
     <ClCompile Include="9063_Ground.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
