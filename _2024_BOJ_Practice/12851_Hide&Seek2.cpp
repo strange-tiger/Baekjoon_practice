@@ -5,49 +5,48 @@
 using namespace std;
 
 int N, K;
-int least, way;
+int ver;
+int least = 0;
+int way = 0;
 vector<int> graph[100001];
 bool isVisited[100001] = { false };
 int _count[100001] = { 0 };
 queue<int> q;
 
-void bfs(int n, int k)
+void bfs()
 {
-	q.push(n);
-	isVisited[n] = true;
+	q.push(N);
+	isVisited[N] = true;
 
 	while (!q.empty())
 	{
-		int ver = q.front();
+		ver = q.front();
 		q.pop();
+
+		isVisited[ver] = true;
+		
+		if (ver == K)
+		{
+			if (least != 0 && least == _count[ver])
+			{
+				++way;
+			}
+			if (least == 0)
+			{
+				least = _count[ver];
+				++way;
+			}
+		}
 
 		for (int next : graph[ver])
 		{
 			if (!isVisited[next])
 			{
 				q.push(next);
-				isVisited[next] = true;
 				_count[next] = _count[ver] + 1;
-
-				if (next == k)
-					way = 1;
 			}
-
-			if (isVisited[next] && _count[next] > _count[ver] + 1)
-			{
-				q.push(next);
-				_count[next] = _count[ver] + 1;
-
-				if (next == k)
-					way = 1;
-			}
-
-			if (_count[next] == _count[ver] + 1 && next == k)
-				++way;
 		}
 	}
-
-	least = _count[k];
 }
 
 int main()
@@ -64,7 +63,7 @@ int main()
 			graph[i].push_back(i * 2);
 	}
 
-	bfs(N, K);
+	bfs();
 
 	printf("%d\n", least);
 	printf("%d", way);
