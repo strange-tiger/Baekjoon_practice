@@ -5,57 +5,45 @@
 using namespace std;
 
 int N, K;
-int ver;
+int ver, dist;
 int least = 100001;
 int way = 0;
-vector<int> graph[100001];
 bool isVisited[100001] = { false };
-int _count[100001] = { 0 };
-queue<int> q;
+queue<pair<int, int>> q;
 
 void bfs()
 {
-	q.push(N);
+	q.push({N, 0});
 	
 	while (!q.empty())
 	{
-		ver = q.front();
+		ver = q.front().first;
+		dist = q.front().second;
 		q.pop();
 		isVisited[ver] = true;
 
-		if (least < _count[ver])
+		if (least < dist)
 			break;
 
 		if (ver == K)
 		{
-			least = _count[ver];
+			least = dist;
 			++way;
+			continue;
 		}
 
-		for (int next : graph[ver])
-		{
-			if (!isVisited[next])
-			{
-				q.push(next);
-				_count[next] = _count[ver] + 1;
-			}
-		}
+		if (ver < 100000 && !isVisited[ver + 1])
+			q.push({ ver + 1, dist + 1 });
+		if (ver > 0 && !isVisited[ver - 1])
+			q.push({ ver - 1, dist + 1 });
+		if (ver < 50001 && !isVisited[ver * 2])
+			q.push({ ver * 2, dist + 1 });
 	}
 }
 
 int main()
 {
 	scanf("%d %d", &N, &K);
-
-	for (int i = 0; i < 100001; ++i)
-	{
-		if (i > 0)
-			graph[i].push_back(i - 1);
-		if (i < 100000)
-			graph[i].push_back(i + 1);
-		if (i * 2 < 100001)
-			graph[i].push_back(i * 2);
-	}
 
 	bfs();
 
