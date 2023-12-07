@@ -6,7 +6,7 @@ using namespace std;
 
 int N, K;
 int ver;
-int least = 0;
+int least = 100001;
 int way = 0;
 vector<int> graph[100001];
 bool isVisited[100001] = { false };
@@ -16,26 +16,20 @@ queue<int> q;
 void bfs()
 {
 	q.push(N);
-	isVisited[N] = true;
-
+	
 	while (!q.empty())
 	{
 		ver = q.front();
 		q.pop();
-
 		isVisited[ver] = true;
-		
+
+		if (least < _count[ver])
+			break;
+
 		if (ver == K)
 		{
-			if (least != 0 && least == _count[ver])
-			{
-				++way;
-			}
-			if (least == 0)
-			{
-				least = _count[ver];
-				++way;
-			}
+			least = _count[ver];
+			++way;
 		}
 
 		for (int next : graph[ver])
