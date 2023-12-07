@@ -96,5 +96,11 @@
     <ClCompile Include="1916_MinimumCost.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1753_MinimumDistance.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="12851_Hide&amp;Seek2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
