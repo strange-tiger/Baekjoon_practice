@@ -114,5 +114,8 @@
     <ClCompile Include="12865_NormalBackpack.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="5639_BinarySearchTree.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
