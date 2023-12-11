@@ -1,3 +1,9 @@
+// 이전 버전 반례
+/*
+100 1 65 1 정 : 65 답 : -1
+60 15 20 5 정 : 20 답 : -1
+*/
+
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
 
