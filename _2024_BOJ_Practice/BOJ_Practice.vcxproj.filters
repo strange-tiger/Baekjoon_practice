@@ -123,5 +123,8 @@
     <ClCompile Include="5525_IOIOI.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1107_RemoteController.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
