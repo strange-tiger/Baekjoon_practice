@@ -223,6 +223,7 @@
     <ClCompile Include="5639_BinarySearchTree.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="6064_CainCalender.c" />
     <ClCompile Include="7785_WhoInCompany.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
