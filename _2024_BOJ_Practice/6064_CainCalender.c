@@ -2,6 +2,18 @@
 #include <stdio.h>
 
 int T, M, N, x, y, ans;
+
+int gcd(int a, int b) 
+{
+	if (b == 0)
+		return a;
+	return gcd(b, a % b);
+}
+int lcm(int a, int b) 
+{
+	return (a * b) / gcd(a, b);
+}
+
 int main()
 {
 	scanf("%d", &T);
@@ -11,35 +23,19 @@ int main()
 	{
 		scanf("%d %d %d %d", &M, &N, &x, &y);
 
-		if (x == y)
-		{
-			printf("%d\n", x);
-			continue;
-		}
+		ans = -1;
 
-		for (i = 1; M * i % N != 0; ++i)
+		int max = lcm(M, N);
+		for (i = x; i <= max; i += M)
 		{
-			ans = M * i + x;
-
-			if (ans % N == y % N)
+			if (i % N == y % N)
 			{
-				printf("%d\n", ans);
+				ans = i;
 				break;
 			}
 		}
 
-		if (M * i % N == 0)
-		{
-			if (M == x && N == y)
-			{
-				printf("%d\n", M * i);
-				continue;
-			}
-			else
-			{
-				printf("-1\n");
-			}
-		}
+		printf("%d\n", ans);
 	}
 
 	return 0;
