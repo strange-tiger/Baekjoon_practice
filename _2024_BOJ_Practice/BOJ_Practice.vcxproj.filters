@@ -129,5 +129,8 @@
     <ClCompile Include="6064_CainCalender.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="10101_RememberTriangle.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
