@@ -138,5 +138,8 @@
     <ClCompile Include="11404_Floyd.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="15654_N&amp;M_5.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
