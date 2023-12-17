@@ -141,5 +141,8 @@
     <ClCompile Include="15654_N&amp;M_5.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="9019_DSLR.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
