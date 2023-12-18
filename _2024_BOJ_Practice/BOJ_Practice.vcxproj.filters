@@ -144,5 +144,8 @@
     <ClCompile Include="9019_DSLR.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="14500_Tetromino.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
