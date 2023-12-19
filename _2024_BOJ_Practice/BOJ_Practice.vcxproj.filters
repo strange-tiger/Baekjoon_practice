@@ -147,5 +147,8 @@
     <ClCompile Include="14500_Tetromino.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="17626_FourSquares.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
