@@ -1,26 +1,23 @@
 #define _CRT_SECURE_NO_WARNINGS 
 #include <stdio.h>
-#include <math.h>
+#define min(x, y) x < y ? x : y
 
-int n, big, cnt = 0;
+int n, i, j;
+int dp[50005] = { 0 };
 int main()
 {
 	scanf("%d", &n);
 
-	big = (int)sqrt(n);
-	n -= big * big;
-	++cnt;
-
-	for (int i = big; i > 0; --i)
+	for (i = 1; i <= n; ++i)
 	{
-		if (n >= i * i)
+		dp[i] = dp[i - 1] + 1;
+		for (j = 1; j * j <= i; ++j)
 		{
-			n -= i * i;
-			++cnt;
+			dp[i] = min(dp[i], dp[i - j * j] + 1);
 		}
 	}
 
-	printf("%d", cnt);
+	printf("%d", dp[n]);
 
 	return 0;
 }
