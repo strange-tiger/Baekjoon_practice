@@ -3,7 +3,7 @@ using namespace std;
 
 int T, N;
 int dist = 12;
-string students[32];
+string students[100000];
 
 string standardMBTI = "ESTJ";
 int MBTI_differ(string mbti, int i)
@@ -36,14 +36,14 @@ int main()
 	{
 		cin >> N;
 
+		for (int i = 0; i < N; ++i)
+			cin >> students[i];
+
 		if (N > 32)
 		{
 			cout << 0 << '\n';
 			continue;
 		}
-
-		for (int i = 0; i < N; ++i)
-			cin >> students[i];
 
 		for (int i = 0; i < N - 2; ++i)
 			for (int j = i + 1; j < N - 1; ++j)
