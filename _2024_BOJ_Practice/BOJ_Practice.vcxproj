@@ -187,6 +187,7 @@
     <ClCompile Include="15654_N&amp;M_5.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="15663_N&amp;M_9.cpp" />
     <ClCompile Include="15894_MathIsAthletic.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

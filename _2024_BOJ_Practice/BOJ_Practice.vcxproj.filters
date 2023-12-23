@@ -165,5 +165,8 @@
     <ClCompile Include="5073_TriangleAndThreeSides.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="15663_N&amp;M_9.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
