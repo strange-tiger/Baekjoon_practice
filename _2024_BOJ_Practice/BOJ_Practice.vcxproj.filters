@@ -171,5 +171,8 @@
     <ClCompile Include="15657_N&amp;M_8.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="15666_N&amp;M_12.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
