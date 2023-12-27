@@ -183,5 +183,8 @@
     <ClCompile Include="14215_ThreeSticks.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="13241_LCM.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
