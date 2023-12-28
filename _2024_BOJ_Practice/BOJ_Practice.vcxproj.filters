@@ -186,5 +186,8 @@
     <ClCompile Include="13241_LCM.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1735_FractionSum.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
