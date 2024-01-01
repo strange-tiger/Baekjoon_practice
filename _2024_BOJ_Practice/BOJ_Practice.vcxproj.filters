@@ -198,5 +198,8 @@
     <ClCompile Include="14719_Raindrop.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2485_StreetTree.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
