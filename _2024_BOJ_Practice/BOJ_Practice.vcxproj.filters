@@ -204,5 +204,8 @@
     <ClCompile Include="28278_Stack2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="12789_DokiDokiSnack.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
