@@ -213,5 +213,8 @@
     <ClCompile Include="2346_PopBalloon.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="24511_QueueStack.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
