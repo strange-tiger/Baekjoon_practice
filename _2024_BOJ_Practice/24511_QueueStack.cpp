@@ -1,11 +1,11 @@
 #include <iostream>
+#include <deque>
 using namespace std;
 
 int N, M;
-int i, j, temp;
-int qs[100000];
-int element[100000];
-int input[100000];
+int i, j, num;
+bool qs[100000];
+deque<int> dq;
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -19,29 +19,20 @@ int main()
 	}
 	for (i = 0; i < N; ++i)
 	{
-		cin >> element[i];
+		cin >> num;
+		if (!qs[i])
+			dq.push_back(num);
 	}
 
 	cin >> M;
 
-	for (i = 0; i < M; ++i)
+	while(M--)
 	{
-		cin >> input[i];
-	}
+		cin >> num;
 
-	for (i = 0; i < M; ++i)
-	{
-		for (j = 0; j < N; ++j)
-		{
-			if (!qs[j])
-			{
-				temp = input[i];
-				input[i] = element[j];
-				element[j] = temp;
-			}
-		}
-
-		cout << input[i] << ' ';
+		dq.push_front(num);
+		cout << dq.back() << ' ';
+		dq.pop_back();
 	}
 
 	return 0;
