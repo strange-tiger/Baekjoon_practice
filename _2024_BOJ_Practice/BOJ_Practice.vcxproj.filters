@@ -216,5 +216,8 @@
     <ClCompile Include="24511_QueueStack.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1967_DiameterOfTree.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
