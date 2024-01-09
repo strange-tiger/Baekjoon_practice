@@ -277,6 +277,7 @@
     <ClCompile Include="2504_ValueOfBracket.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="25192_HiGomGom.cpp" />
     <ClCompile Include="25206_YourGrade.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

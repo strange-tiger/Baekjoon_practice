@@ -222,5 +222,8 @@
     <ClCompile Include="1167_DiameterOfTree.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="25192_HiGomGom.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
