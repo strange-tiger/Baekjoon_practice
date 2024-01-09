@@ -1,12 +1,12 @@
 #include <iostream>
-#include <unordered_map>
+#include <map>
 #include <string>
 #define ENTER "ENTER"
 using namespace std;
 
 int N, answer = 0;
 string chat;
-unordered_map<string, bool> member;
+map<string, bool> member;
 int main()
 {
 	ios_base::sync_with_stdio(false);
