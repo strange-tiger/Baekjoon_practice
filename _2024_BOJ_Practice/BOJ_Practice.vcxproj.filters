@@ -228,5 +228,8 @@
     <ClCompile Include="26069_FriendlyChongChong.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="20920_MemorizeEnglishWord.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
