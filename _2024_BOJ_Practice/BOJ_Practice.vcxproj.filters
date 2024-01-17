@@ -240,5 +240,8 @@
     <ClCompile Include="17103_GoldbachPartition.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1064_Parallelogram.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
