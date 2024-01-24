@@ -264,5 +264,8 @@
     <ClCompile Include="24313_BigO.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="11054_LongestBitonicSubsequence.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
