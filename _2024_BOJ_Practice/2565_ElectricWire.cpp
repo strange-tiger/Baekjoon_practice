@@ -1,11 +1,20 @@
 #include <iostream>
+#include <utility>
+#include <algorithm>
 #define MAX 501
+#define Pair pair<int, int>
 using namespace std;
 
-int N, temp, correct = 0;
+int N, correct = 0;
 int i, j;
-int wire[MAX] = { 0 };
 int L[MAX] = { 0 };
+Pair wire[MAX];
+
+bool Cmp(Pair A, Pair B)
+{
+	return A.first < B.first;
+}
+
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -14,27 +23,22 @@ int main()
 
 	cin >> N;
 	for (i = 0; i < N; ++i)
-		cin >> temp >> wire[temp];
+		cin >> wire[i].first >> wire[i].second;
 
-	for (i = 1; i < MAX; ++i)
+	sort(wire, wire + N, Cmp);
+
+	for (i = 0; i < N; ++i)
 	{
 		L[i] = 1;
 		
-		if (wire[i] == 0)
-			continue;
+		for (j = 0; j < i; ++j)
+			if (wire[i].second > wire[j].second)
+				L[i] = max(L[i], L[j] + 1);
 
-		for (j = 1; j < i; ++j)
-		{
-			if (wire[i] > wire[j])
-			{
-				L[i] = L[i] > (L[j] + 1) ? L[i] : (L[j] + 1);
-			}
-		}
-
-		correct = correct < L[i] ? L[i] : correct;
+		correct = max(correct, L[i]);
 	}
 
-	cout << N - correct;
+	cout << N - correct << '\n';
 
 	return 0;
 }
