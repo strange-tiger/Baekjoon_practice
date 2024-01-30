@@ -282,5 +282,8 @@
     <ClCompile Include="23253_BestDataStructure.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="13335_Truck.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
