@@ -285,5 +285,14 @@
     <ClCompile Include="13335_Truck.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1384_Message.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="4335_GuessNumber.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="25966_LikeArray.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
