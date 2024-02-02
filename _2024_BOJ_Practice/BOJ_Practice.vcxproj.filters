@@ -300,5 +300,11 @@
     <ClCompile Include="13567_Robot.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="9372_Sanggun%27sTrip.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="10451_PermutationCycles.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
