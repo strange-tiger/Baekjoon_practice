@@ -306,5 +306,8 @@
     <ClCompile Include="10451_PermutationCycles.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2206_BreakWallAndMove.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
