@@ -315,5 +315,11 @@
     <ClCompile Include="11657_Timemachine.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="9655_StoneGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="9655_StoneGame_Simple.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
