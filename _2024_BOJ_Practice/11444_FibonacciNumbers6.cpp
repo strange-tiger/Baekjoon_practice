@@ -1,10 +1,41 @@
 #include <iostream>
-#include <cmath>
-#define DIVIDED 1000000007
+#include <map>
+#define DIVIDED 1000000007LL
+#define L long long
 using namespace std;
 
-long long int n;
-double golden = (1 + sqrt(5)) / 2;
+L n;
+map <L, L> F;
+
+L fibonacci(L num)
+{
+	if (num == 0)
+		return 0;
+	if (num == 1)
+		return 1;
+	if (num == 2)
+		return 1;
+	if (F.count(num) > 0)
+		return F[num];
+
+	if (num % 2 == 0)
+	{
+		L m = num / 2;
+		L n1 = fibonacci(m - 1);
+		L n2 = fibonacci(m);
+		F[num] = (2LL * n1 * n2 + n2 * n2) % DIVIDED;
+		return F[num];
+	}
+	else
+	{
+		L m = (num + 1) / 2;
+		L n1 = fibonacci(m - 1);
+		L n2 = fibonacci(m);
+		F[num] = (n1 * n1 + n2 * n2) % DIVIDED;
+		return F[num];
+	}
+}
+
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -13,9 +44,7 @@ int main()
 
 	cin >> n;
 
-	long long int answer = (long long int)(round((long double)(pow(golden, n) - pow(1 - golden, n)) / sqrt(5))) % DIVIDED;
-
-	cout << answer;
+	cout << fibonacci(n);
 
 	return 0;
 }
