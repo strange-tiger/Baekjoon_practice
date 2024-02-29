@@ -1,13 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <limits.h>
-#define INF INT_MAX
+#define INF 10e8
 using namespace std;
 
-int N, E, a, b, c, v1, v2;
-int answer = 0;
-int Dist[3];
+int N, E, a, b, c, v1, v2, answer;
+int Dist[2] = { 0 };
 vector<pair<int, int>> g[801];
 
 void Input()
@@ -67,21 +65,22 @@ int main()
 
 	Input();
 	
-	Dist[0] = dijkstra(1, v1);
-	Dist[1] = dijkstra(v1, v2);
-	Dist[2] = dijkstra(v2, N);
-
-	for (int d : Dist)
+	int middle = dijkstra(v1, v2);
+	if (middle >= INF)
 	{
-		if (d >= INF)
-		{
-			cout << -1;
-			return 0;
-		}
-		answer += d;
+		cout << -1;
+		return 0;
 	}
+
+	Dist[0] = dijkstra(1, v1) + middle + dijkstra(v2, N);
+	Dist[1] = dijkstra(1, v2) + middle + dijkstra(v1, N);
 	
-	cout << answer;
+	answer = min(Dist[0], Dist[1]);
+
+	if (answer >= INF || answer < 0)
+		cout << -1;
+	else
+		cout << answer;
 
 	return 0;
 }
