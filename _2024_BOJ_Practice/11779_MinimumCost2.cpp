@@ -37,6 +37,9 @@ void dijkstra(int start)
 		curCity = heap.top().second;
 		heap.pop();
 
+		if (cost[curCity] < curCost)
+			continue;
+
 		int busSize = bus[curCity].size();
 		for (int i = 0; i < busSize; ++i)
 		{
