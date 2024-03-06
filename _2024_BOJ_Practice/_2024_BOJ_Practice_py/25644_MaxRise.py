@@ -3,14 +3,11 @@ import sys
 N = int(sys.stdin.readline().rstrip())
 a = list(map(int, sys.stdin.readline().rstrip().split()))
 
-Max = max(a)
-Min = Max if a.index(Max) == 0 else min(a[:a.index(Max)])
-Min = Min if Min <= Max else Max
-bene1 = Max - Min
+Max = 0
+benefit = 0
 
-Min = min(a)
-Max = Min if a.index(Min) == N - 1 else max(a[a.index(Min):])
-Max = Max if Max >= Min else Min
-bene2 = Max - Min
+for i in range(N - 1, -1, -1) :
+    Max = max(Max, a[i])
+    benefit = max(benefit, Max - a[i])
 
-print (max([bene1, bene2]))
+print(benefit)
