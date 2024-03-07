@@ -1,12 +1,17 @@
 import sys
 
 s = sys.stdin.readline().rstrip()
-exp = sys.stdin.readline().rstrip()
+exp = list(sys.stdin.readline().rstrip())
+l = len(exp)
+stack = []
 
-while s.find(exp) != -1 :
-    s = s.replace(exp, '')
+for i in s :
+    stack.append(i)
+    if stack[-l:] == exp :
+        for _ in range(l) :
+            stack.pop()
 
-if s == "" :
-    print("FRULA")
+if stack :
+    print("".join(stack))
 else :
-    print(s)
+    print("FRULA")
