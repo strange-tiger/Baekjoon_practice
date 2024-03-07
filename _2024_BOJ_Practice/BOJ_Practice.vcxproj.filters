@@ -345,5 +345,8 @@
     <ClCompile Include="11779_MinimumCost2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="5582_CommonSubstring.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
