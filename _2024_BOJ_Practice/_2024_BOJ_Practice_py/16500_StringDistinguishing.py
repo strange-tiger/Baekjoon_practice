@@ -6,17 +6,25 @@ A = []
 dp = [0] * 101
 for _ in range(N) :
     A.append(sys.stdin.readline().rstrip())
-
 L = len(S)
-dp[L] = 1
 
+def solution(idx):
+    global result
 
-for i in range(L - 1, -1, -1) :
-    for j in range(N) :
-        if S.find(A[j]) == i and dp[i + len(A[j])] :
-            dp[i] = 1
-            break
-        else :
-            dp[i] = 0
+    if idx == L :
+        result = 1
+        return
+    if dp[idx] :
+        return
 
-print(dp[0])
+    dp[idx] = 1
+
+    for i in A :
+        if L >= idx + len(i) :
+            if S[idx : idx + len(i)] == i :
+                solution(idx + len(i))
+
+result = 0
+solution(0)
+
+print(result)
