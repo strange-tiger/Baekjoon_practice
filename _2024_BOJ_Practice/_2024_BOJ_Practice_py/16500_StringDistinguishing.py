@@ -3,20 +3,20 @@ import sys
 S = sys.stdin.readline().rstrip()
 N = int(sys.stdin.readline().rstrip())
 A = []
-Ain = []
-for i in range(N) :
+dp = [0] * 101
+for _ in range(N) :
     A.append(sys.stdin.readline().rstrip())
 
-def Check (Str, cnt) :
-    if cnt == 0 :
-        return
-    for i in A :
-        if S == Str + i :
-            print(1)
-            exit()
-        elif S.find(Str + i) != -1 :
-            Str = Str + i
-            Check(Str, cnt - 1)
+L = len(S)
+dp[L] = 1
 
-Check("", len(S))
-print(0)
+
+for i in range(L - 1, -1, -1) :
+    for j in range(N) :
+        if S.find(A[j]) == i and dp[i + len(A[j])] :
+            dp[i] = 1
+            break
+        else :
+            dp[i] = 0
+
+print(dp[0])
