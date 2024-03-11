@@ -354,5 +354,8 @@
     <ClCompile Include="17070_MovePipe1_dp.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="17144_FineDust.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
