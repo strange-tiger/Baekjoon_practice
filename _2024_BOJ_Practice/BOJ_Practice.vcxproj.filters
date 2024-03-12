@@ -357,5 +357,8 @@
     <ClCompile Include="17144_FineDust.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="14938_SogangGround.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
