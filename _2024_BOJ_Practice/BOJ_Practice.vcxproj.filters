@@ -363,5 +363,8 @@
     <ClCompile Include="31263_TheLongestPowerProtectKorea.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="9625_BABBA.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
