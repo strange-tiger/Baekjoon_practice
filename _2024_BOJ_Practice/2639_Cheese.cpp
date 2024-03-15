@@ -1,22 +1,24 @@
 #include <iostream>
 #include <utility>
 #include <queue>
-#define MAX 100
+#include <cstring>
+#define MAX 101
 using namespace std;
 
 int N, M;
 int answer = 0;
-int cheese[MAX][MAX];
-int cnt[MAX][MAX];
-int melt[MAX][MAX] = { 0 };
 int dx[4] = { 0, 1, 0, -1 };
 int dy[4] = { 1, 0, -1, 0 };
-int checkEnd = 0;
-bool remain = true;
-queue<pair<int, int>> q;
+int cheese[MAX][MAX];
+int melt[MAX][MAX] = { 0 };
+bool isVisited[MAX][MAX] = { false };
 
 void input()
 {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
 	cin >> N >> M;
 
 	for (int i = 0; i < N; ++i)
@@ -26,8 +28,8 @@ void input()
 
 void bfs()
 {
+	queue<pair<int, int>> q;
 	q.push({ 0, 0 });
-	cnt[0][0] = 1;
 
 	int x, y;
 	while (!q.empty())
@@ -36,12 +38,9 @@ void bfs()
 		y = q.front().second;
 		q.pop();
 
-		if (x == M - 1 && y == N - 1)
-		{
-			while (!q.empty())
-				q.pop();
-			return;
-		}
+		if (isVisited[y][x])
+			continue;
+		isVisited[y][x] = true;
 
 		for (int i = 0; i < 4; ++i)
 		{
@@ -52,79 +51,56 @@ void bfs()
 				continue;
 
 			if (cheese[ny][nx] == 1)
-				continue;
-
-			q.push({ nx, ny });
-			cnt[ny][nx] = cnt[y][x] + 1;
+				++melt[ny][nx];
+			else if (!isVisited[ny][nx])
+				q.push({ nx, ny });
 		}	
 	}
 
 	return;
 }
 
-void Melt()
+bool Melt()
 {
-	while (remain)
+	bool isMelted = false;
+
+	for (int i = 1; i < N - 1; ++i)
 	{
-		bfs();
-	
-		for (int i = 0; i < N; ++i)
+		for (int j = 1; j < M - 1; ++j)
 		{
-			for (int j = 0; j < M; ++j)
+			if (melt[i][j] > 1)
 			{
-				if (cheese[i][j] == 1)
-				{
-					int limit = 0;
-
-					for (int k = 0; k < 4; ++k)
-					{
-						int nj = j + dx[k];
-						int ni = i + dy[k];
-
-						if (nj < 0 || nj >= M || ni < 0 || ni >= N)
-							continue;
-						if (cheese[ni][nj] == 0 && cnt[ni][nj] != 0)
-							++limit;
-						
-						if (limit > 1)
-						{
-							melt[i][j] = 1;
-							break;
-						}
-					}
-				}
+				cheese[i][j] = 0;
+				isMelted = true;
 			}
 		}
-
-		for (int i = 0; i < N; ++i)
-		{
-			for (int j = 0; j < M; ++j)
-			{
-				cheese[i][j] -= melt[i][j];
-				melt[i][j] = 0;
-				cnt[i][j] = 0;
-				checkEnd += cheese[i][j];
-			}
-		}
-		++answer;
-
-		if (checkEnd == 0)
-			remain = false;
-		checkEnd = 0;
 	}
+
+	return isMelted;
+}
+
+void solve()
+{
+	while (true)
+	{
+		memset(isVisited, false, sizeof(isVisited));
+		memset(melt, 0, sizeof(melt));
+
+		bfs();
+		if (Melt())
+			++answer;
+		else
+			break;
+	}
+
+	cout << answer;
 }
 
 int main()
 {
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	cout.tie(NULL);
-
 	input();
 
-	Melt();
-
-	cout << answer;
+	solve();
 
 	return 0;
 }
