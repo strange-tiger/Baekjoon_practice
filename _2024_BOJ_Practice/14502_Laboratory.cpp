@@ -14,7 +14,6 @@ int dx[4] = { 0, 1, 0, -1 };
 int dy[4] = { 1, 0, -1, 0 };
 bool isVisited[8][8] = { false };
 vector<pair<int, int>> virus;
-vector<pair<int, int>> check;
 
 void input()
 {
@@ -77,7 +76,7 @@ int bfs(int sX, int sY)
 	return cnt;
 }
 
-void wall(int depth, int ni, int nj)
+void wall(int depth, int next)
 {
 	if (depth == 3)
 	{
@@ -91,21 +90,15 @@ void wall(int depth, int ni, int nj)
 		return;
 	}
 
-	for (int i = ni; i < N; ++i)
+	for (int i = next; i < N; ++i)
 	{
-		for (int j = nj; j < M; ++j)
+		for (int j = 0; j < M; ++j)
 		{
 			if (lab[i][j] != 0)
 				continue;
 			
 			lab[i][j] = 1;
-			check.push_back({ i,j });
-			if (j == M - 1)
-				wall(depth + 1, i + 1, 0);
-			else
-				wall(depth + 1, i, j + 1);
-			
-			check.pop_back();
+			wall(depth + 1, i);
 			lab[i][j] = 0;
 		}
 	}
@@ -113,7 +106,7 @@ void wall(int depth, int ni, int nj)
 
 void solve()
 {
-	wall(0, 0, 0);
+	wall(0, 0);
 
 	cout << answer;
 }
