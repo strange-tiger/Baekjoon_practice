@@ -2,19 +2,21 @@
 #include <queue>
 #include <utility>
 #include <cstring>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int N;
 int sX, sY;
 int sharkSize = 2;
-int fishNum = 0;
 int eatCnt = 0;
 int answer = 0;
 int dx[] = { 0, -1, 0, 1 };
 int dy[] = { -1, 0, 1, 0 };
 int map[20][20];
 int cnt[20][20] = { 0 };
-bool eat = false;
+bool noMom = true;
+vector<pair<int, int>> fish;
 
 void input()
 {
@@ -29,12 +31,8 @@ void input()
 		for (int j = 0; j < N; ++j)
 		{
 			cin >> map[i][j];
-
-			if (map[i][j] > 0 && map[i][j] < 9)
-			{
-				++fishNum;
-			}
-			else if (map[i][j] == 9)
+			
+			if (map[i][j] == 9)
 			{
 				map[i][j] = 0;
 				sX = j;
@@ -46,10 +44,10 @@ void input()
 
 void bfs()
 {
-	memset(cnt, 0, sizeof(cnt));
+	memset(cnt, -1, sizeof(cnt));
+	fish.clear();
 	queue<pair<int, int>> q;
 
-	eat = false;
 	q.push({ sX, sY });
 
 	int x, y, nx, ny;
@@ -57,19 +55,8 @@ void bfs()
 	{
 		x = q.front().first;
 		y = q.front().second;
-
-		// 위쪽과 왼쪽을 우선적으로 먹는 것을 고려해 예외 처리
-		if (map[y][x] > 0 && map[y][x] < sharkSize
-			&& (sY > y || (sY == y && sX > x)))
-		{
-			sX = x;
-			sY = y;
-			continue;
-		}
 		q.pop();
-
-		if (fishNum == 0)
-			return;
+		cnt[y][x] = 0;
 
 		for (int i = 0; i < 4; ++i)
 		{
@@ -86,29 +73,13 @@ void bfs()
 			else if (map[ny][nx] == sharkSize || map[ny][nx] == 0)
 			{
 				cnt[ny][nx] = cnt[y][x] + 1;
-
 				q.push({ nx, ny });
 			}
 			else if (map[ny][nx] < sharkSize)
 			{
-				sX = nx;
-				sY = ny;
-
-				eat = true;
-
-				map[ny][nx] = 0;
-				answer += cnt[y][x] + 1;
-				
-				++eatCnt;
-				--fishNum;
-
-				if (eatCnt == sharkSize)
-				{
-					++sharkSize;
-					eatCnt = 0;
-				}
-
-				return;
+				cnt[ny][nx] = cnt[y][x] + 1;
+				fish.push_back({ nx, ny });
+				q.push({ nx, ny });
 			}
 		}
 	}
@@ -116,13 +87,74 @@ void bfs()
 	return;
 }
 
+// 물고기 중 위쪽과 왼쪽을 우선하는 문제를 해결하기 위해,
+// 물고기의 위치를 벡터에 저장하고 저장된 물고기의 갯수에 따라 
+// 가까운 물고기 중 위쪽, 왼쪽을 우선하여 골라 먹는 함수
+void chooseFish()
+{
+	if (fish.size() == 0)
+	{
+		noMom = false;
+		return;
+	}
+	else if (fish.size() == 1)
+	{
+		sX = fish.front().first;
+		sY = fish.front().second;
+		map[sY][sX] = 0;
+
+		++eatCnt;
+		answer += cnt[sY][sX];
+	}
+	else
+	{
+		int Min = 1e8;
+		vector<pair<int, int>> eatenFish;
+
+		for (pair<int, int> Pos : fish)
+			Min = min(Min, cnt[Pos.second][Pos.first]);
+
+		for (pair<int, int> Pos : fish)
+			if (Min == cnt[Pos.second][Pos.first])
+				eatenFish.push_back({ Pos.second, Pos.first });
+
+		if (eatenFish.size() == 1)
+		{
+			sX = eatenFish.front().second;
+			sY = eatenFish.front().first;
+
+			map[sY][sX] = 0;
+
+			++eatCnt;
+			answer += cnt[sY][sX];
+		}
+		else
+		{
+			sort(eatenFish.begin(), eatenFish.end());
+			sX = eatenFish.front().second;
+			sY = eatenFish.front().first;
+
+			map[sY][sX] = 0;
+
+			++eatCnt;
+			answer += cnt[sY][sX];
+		}
+	}
+
+	if (eatCnt >= sharkSize)
+	{
+		eatCnt -= sharkSize;
+		++sharkSize;
+	}
+}
+
 void solve()
 {
-	do
+	while (noMom)
 	{
 		bfs();
+		chooseFish();
 	}
-	while (eat);
 
 	cout << answer;
 }
