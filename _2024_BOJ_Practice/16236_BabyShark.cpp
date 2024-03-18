@@ -57,6 +57,15 @@ void bfs()
 	{
 		x = q.front().first;
 		y = q.front().second;
+
+		// 위쪽과 왼쪽을 우선적으로 먹는 것을 고려해 예외 처리
+		if (map[y][x] > 0 && map[y][x] < sharkSize
+			&& (sY > y || (sY == y && sX > x)))
+		{
+			sX = x;
+			sY = y;
+			continue;
+		}
 		q.pop();
 
 		if (fishNum == 0)
