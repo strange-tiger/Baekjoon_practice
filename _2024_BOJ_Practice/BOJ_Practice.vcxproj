@@ -286,6 +286,7 @@
     <ClCompile Include="16139_Human-ComputerInteraction.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="16236_BabyShark.cpp" />
     <ClCompile Include="1629_Multiply.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
