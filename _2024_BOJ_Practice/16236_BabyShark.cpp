@@ -49,6 +49,7 @@ void bfs()
 	queue<pair<int, int>> q;
 
 	q.push({ sX, sY });
+	cnt[sY][sX] = 0;
 
 	int x, y, nx, ny;
 	while (!q.empty())
@@ -56,7 +57,6 @@ void bfs()
 		x = q.front().first;
 		y = q.front().second;
 		q.pop();
-		cnt[y][x] = 0;
 
 		for (int i = 0; i < 4; ++i)
 		{
@@ -65,7 +65,7 @@ void bfs()
 
 			if (nx < 0 || nx >= N || ny < 0 || ny >= N)
 				continue;
-			if (cnt[ny][nx] != 0)
+			if (cnt[ny][nx] != -1)
 				continue;
 			
 			if (map[ny][nx] > sharkSize)
