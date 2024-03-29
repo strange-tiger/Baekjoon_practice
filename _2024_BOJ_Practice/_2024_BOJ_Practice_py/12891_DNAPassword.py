@@ -8,10 +8,19 @@ num = list(map(int, sys.stdin.readline().rstrip().split()))
 words = ['A', 'C', 'G', 'T']
 
 cnt = 0
-for i in range(S - P + 1) :
+check = [0] * 4
+for i in range(0, S - P + 1) :
     able = True
+
+    if i == 0 :
+        for j in range(4) :
+            check[j] = DNA[:P].count(words[j])
+    else :
+        check[words.index(DNA[i - 1])] -= 1
+        check[words.index(DNA[i + P - 1])] += 1
+
     for j in range(4) :
-        if num[j] > DNA[i : i + P].count(words[j]) :
+        if num[j] > check[j] :
             able = False
             break
     if able :
