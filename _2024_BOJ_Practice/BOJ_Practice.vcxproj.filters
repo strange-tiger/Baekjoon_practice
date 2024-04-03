@@ -405,5 +405,8 @@
     <ClCompile Include="10830_MatrixSquare.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2217_Rope.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
