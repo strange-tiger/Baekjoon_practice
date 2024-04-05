@@ -411,5 +411,8 @@
     <ClCompile Include="2166_AreaOfPolygon.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1789_NumbersSum.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
