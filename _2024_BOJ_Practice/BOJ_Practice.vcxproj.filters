@@ -420,5 +420,8 @@
     <ClCompile Include="1715_SortCard.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1946_NewRecruits.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
