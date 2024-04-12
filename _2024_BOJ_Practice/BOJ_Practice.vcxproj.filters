@@ -426,5 +426,8 @@
     <ClCompile Include="1449_RepairmanHangseung.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2847_RAZINE.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
