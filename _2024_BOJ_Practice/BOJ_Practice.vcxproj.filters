@@ -432,5 +432,8 @@
     <ClCompile Include="11758_CCW.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="15903_CardSumGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
