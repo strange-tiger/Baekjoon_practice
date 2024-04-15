@@ -1,9 +1,11 @@
 #include <iostream>
 #include <queue>
+#define L long long
 using namespace std;
 
-int n, m, tmp, answer = 0;
-priority_queue<int, vector<int>, greater<int>> pq;
+int n, m;
+L tmp, answer = 0;
+priority_queue<L, vector<L>, greater<L>> pq;
 
 void input()
 {
@@ -13,7 +15,7 @@ void input()
 
 	cin >> n >> m;
 
-	for (int i = 0; i < n; ++i)
+	while(n--)
 	{
 		cin >> tmp;
 		pq.push(tmp);
