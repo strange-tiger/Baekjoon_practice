@@ -435,5 +435,8 @@
     <ClCompile Include="15903_CardSumGame.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="11501_Stock .cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
