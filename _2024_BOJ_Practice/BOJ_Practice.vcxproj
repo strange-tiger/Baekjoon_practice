@@ -364,6 +364,7 @@
     <ClCompile Include="17626_FourSquares.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="1783_SickKnight.cpp" />
     <ClCompile Include="1789_NumbersSum.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
