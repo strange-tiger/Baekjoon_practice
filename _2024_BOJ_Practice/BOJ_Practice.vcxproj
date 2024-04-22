@@ -376,6 +376,7 @@
     <ClCompile Include="18110_solvedac_62131670_homework2022.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="18310_Antenna.cpp" />
     <ClCompile Include="1865_Wormhole.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
