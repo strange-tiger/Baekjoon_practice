@@ -1,11 +1,9 @@
 #include <iostream>
-#include <vector>
-#include <cmath>
-#define MAX 2e9
+#include <algorithm>
 using namespace std;
 
-int N, answer = MAX, Min = MAX;
-vector<int> pos;
+int N;
+int pos[200001];
 
 void input()
 {
@@ -15,32 +13,14 @@ void input()
 
 	cin >> N;
 
-	int tmp;
 	for (int i = 0; i < N; ++i)
-	{
-		cin >> tmp;
-		pos.push_back(tmp);
-	}
+		cin >> pos[i];
 }
 
 void solve()
 {
-	int sum;
-	for (int i : pos)
-	{
-		sum = 0;
-
-		for (int j : pos)
-			sum += abs(i - j);
-
-		if (Min >= sum)
-		{
-			Min = sum;
-			answer = i < answer ? i : answer;
-		}
-	}
-
-	cout << answer;
+	sort(pos, pos + N);
+	cout << pos[(N - 1) / 2];
 }
 
 int main()
