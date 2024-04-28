@@ -1,23 +1,23 @@
 import sys
+import heapq
 
 N, K = map(int, sys.stdin.readline().rstrip().split())
-answer = 0
 
 jewels = list()
 for _ in range(N):
-    jewels.append(list(map(int, sys.stdin.readline().rstrip().split())))
-jewels.sort(key=lambda j : j[1], reverse=True)
+    heapq.heappush(jewels, list(map(int, sys.stdin.readline().rstrip().split())))
 
-bags = list()
-for _ in range(K):
-    bags.append(int(sys.stdin.readline().rstrip()))
+bags = [int(sys.stdin.readline().rstrip()) for _ in range(K)]
 bags.sort()
 
-for i in jewels:
-    for j in range(K):
-        if bags[j] >= i[0]:
-            bags[j] = 0
-            answer += i[1]
-            break
+answer = 0
+able = list()
+for bag in bags:
+    while jewels and bag >= jewels[0][0]:
+        heapq.heappush(able, -heapq.heappop(jewels)[1])
+    if able:
+        answer -= heapq.heappop(able)
+    elif not jewels:
+        break
 
 print(answer)
