@@ -2,8 +2,9 @@
 using namespace std;
 
 int N;
-int cnt, Max = 0;
-int height[50];
+int Max = 0;
+int cnt[51] = { 0 };
+int height[51];
 double slope;
 
 void input()
@@ -20,49 +21,29 @@ void input()
 
 double Slope(int a, int b)
 {
-	return (double)(height[a] - height[b]) / (a - b);
+	return (double)(height[b] - height[a]) / (b - a);
 }
 
 void solve()
 {
 	for (int i = 0; i < N; ++i)
 	{
-		cnt = 0;
-		double tmp;
+		double tmpSlope;
+		double maxSlope = -1e9;
 		
-		if (i > 0)
-		{
-			++cnt;
-			slope = Slope(i, i - 1);
-		}
-		for (int j = i - 1; j >= 0; --j)
-		{
-			tmp = Slope(i, j);
-			
-			if (tmp > slope)
-			{
-				++cnt;
-				slope = tmp;
-			}
-		}
-
-		if (i < N - 1)
-		{
-			++cnt;
-			slope = Slope(i + 1, i);
-		}
 		for (int j = i + 1; j < N; ++j)
 		{
-			tmp = Slope(j, i);
+			tmpSlope = Slope(i, j);
 
-			if (tmp > slope)
+			if (tmpSlope > maxSlope)
 			{
-				++cnt;
-				slope = tmp;
+				maxSlope = tmpSlope;
+				++cnt[i];
+				++cnt[j];
 			}
 		}
 
-		Max = cnt > Max ? cnt : Max;
+		Max = Max < cnt[i] ? cnt[i] : Max;
 	}
 
 	cout << Max;
