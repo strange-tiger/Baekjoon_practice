@@ -456,5 +456,8 @@
     <ClCompile Include="15803_PLAYERJINAH’S_BOTTLEGROUNDS.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1027_Skyscraper.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
