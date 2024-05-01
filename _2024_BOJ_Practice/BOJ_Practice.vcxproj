@@ -367,6 +367,7 @@
     <ClCompile Include="1735_FractionSum.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="17386_LineIntersection1.cpp" />
     <ClCompile Include="1753_MinimumDistance.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
