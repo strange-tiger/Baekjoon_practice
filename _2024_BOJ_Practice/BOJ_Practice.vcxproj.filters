@@ -462,5 +462,8 @@
     <ClCompile Include="17386_LineIntersection1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="17387_LineIntersection2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
