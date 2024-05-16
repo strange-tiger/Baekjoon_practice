@@ -477,5 +477,8 @@
     <ClCompile Include="3108_LOGO.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="12781_PIZZA_ALVOLOC.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
