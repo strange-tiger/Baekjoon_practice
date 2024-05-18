@@ -480,5 +480,8 @@
     <ClCompile Include="12781_PIZZA_ALVOLOC.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="7869_CircularArea.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
