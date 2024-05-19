@@ -483,5 +483,8 @@
     <ClCompile Include="7869_CircularArea.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="17247_ManhattanDistance.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
