@@ -486,5 +486,8 @@
     <ClCompile Include="17247_ManhattanDistance.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="17371_MovingHome.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
