@@ -55,7 +55,7 @@ void backTrack(int num)
 				cout << sudoku[i][j];
 			cout << '\n';
 		}
-		return;
+		exit(0);
 	}
 
 	int x = blanks[num].second;
