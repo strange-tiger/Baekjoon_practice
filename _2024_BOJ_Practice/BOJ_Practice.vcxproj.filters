@@ -498,5 +498,8 @@
     <ClCompile Include="27172_DivideNumbersGame.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2239_Sudoku.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
