@@ -501,5 +501,8 @@
     <ClCompile Include="2239_Sudoku.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="9252_LCS2.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
