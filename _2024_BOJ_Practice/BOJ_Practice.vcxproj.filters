@@ -507,5 +507,8 @@
     <ClCompile Include="10942_Palindrome.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2473_ThreeSolutions.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
