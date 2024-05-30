@@ -1,8 +1,9 @@
 #include <iostream>
+#define L long long
 using namespace std;
 
-int N, M, cnt = 0;
-int tmp, sum = 0;
+L N, M, cnt = 0;
+L tmp, sum = 0;
 int mod[1001] = { 0 };
 
 void input()
@@ -24,9 +25,9 @@ void input()
 
 void solve()
 {
+	cnt += mod[0];
 	for (int i = 0; i <= M; ++i)
 		cnt += mod[i] * (mod[i] - 1) / 2;
-	cnt += mod[0];
 
 	cout << cnt;
 }
