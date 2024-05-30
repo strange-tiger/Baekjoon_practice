@@ -2,7 +2,8 @@
 using namespace std;
 
 int N, M, cnt = 0;
-int mod[1000000];
+int tmp, sum = 0;
+int mod[1001] = { 0 };
 
 void input()
 {
@@ -12,26 +13,20 @@ void input()
 
 	cin >> N >> M;
 
-	int tmp;
-	cin >> mod[0];
-	mod[0] %= M;
-	for (int i = 1; i < N; ++i)
+	for (int i = 0; i < N; ++i)
 	{
 		cin >> tmp;
-		mod[i] = (tmp + mod[i - 1]) % M;
+		sum += tmp % M;
+		sum %= M;
+		++mod[sum];
 	}
 }
 
 void solve()
 {
-	for (int i = 0; i < N; ++i)
-	{
-		if (mod[i] == 0)
-			++cnt;
-		for (int j = i + 1; j < N; ++j)
-			if (mod[i] == mod[j])
-				++cnt;
-	}
+	for (int i = 0; i <= M; ++i)
+		cnt += mod[i] * (mod[i] - 1) / 2;
+	cnt += mod[0];
 
 	cout << cnt;
 }
