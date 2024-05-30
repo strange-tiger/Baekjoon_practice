@@ -510,5 +510,8 @@
     <ClCompile Include="2473_ThreeSolutions.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="10986_RemainderSum.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
