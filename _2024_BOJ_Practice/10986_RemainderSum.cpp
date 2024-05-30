@@ -4,7 +4,7 @@ using namespace std;
 
 L N, M, cnt = 0;
 L tmp, sum = 0;
-int mod[1001] = { 0 };
+L mod[1001] = { 0 };
 
 void input()
 {
@@ -17,9 +17,8 @@ void input()
 	for (int i = 0; i < N; ++i)
 	{
 		cin >> tmp;
-		sum += tmp % M;
-		sum %= M;
-		++mod[sum];
+		sum += tmp;
+		++mod[sum % M];
 	}
 }
 
