@@ -1,9 +1,10 @@
 ﻿#include <iostream>
-#include <string>
+#include <algorithm>
 using namespace std;
 
-int N, M, K, MIN;
-string board[2000];
+int N, M, K;
+int sum[2001][2001] = { 0 };
+char board[2001][2001];
 
 void input()
 {
@@ -14,53 +15,43 @@ void input()
 	cin >> N >> M >> K;
 
 	for (int i = 0; i < N; ++i)
-		cin >> board[i];
+		for (int j = 0; j < M; ++j)
+			cin >> board[i][j];
 }
 
-void solve()
+int minRepaint(char color)
 {
-	MIN = 2e6;
+	int MIN = 2e6;
+	int change, cnt;
+	for (int i = 0; i < N; ++i)
+	{
+		for (int j = 0; j < M; ++j)
+		{
+			if ((i + j) % 2 == 0)
+				change = board[i][j] != color;
+			else
+				change = board[i][j] == color;
+			
+			sum[i + 1][j + 1] = sum[i][j + 1] + sum[i + 1][j] - sum[i][j] + change;
+		}
+	}
+
 	for (int i = 0; i <= N - K; ++i)
 	{
 		for (int j = 0; j <= M - K; ++j)
 		{
-			// 왼쪽 위가 하얀색인 경우
-			int cnt = 0;
-			for (int k = i; k < i + K; ++k)
-			{
-				for (int l = j; l < j + K; ++l)
-				{
-					if ((k + l) % 2 == 1 && board[k][l] == 'W')
-						++cnt;
-					else if ((k + l) % 2 == 0 && board[k][l] == 'B')
-						++cnt;
+			cnt = sum[i + K][j + K] - sum[i + K][j] - sum[i][j + K] + sum[i][j];
 
-				}
-			}
-
-			if (MIN > cnt)
-				MIN = cnt;
-
-			// 왼쪽 위가 검은색인 경우
-			cnt = 0;
-			for (int k = i; k < i + K; ++k)
-			{
-				for (int l = j; l < j + K; ++l)
-				{
-					if ((k + l) % 2 == 1 && board[k][l] == 'B')
-						++cnt;
-					else if ((k + l) % 2 == 0 && board[k][l] == 'W')
-						++cnt;
-
-				}
-			}
-
-			if (MIN > cnt)
-				MIN = cnt;
+			MIN = min(MIN, cnt);
 		}
 	}
 
-	cout << MIN;
+	return MIN;
+}
+
+void solve()
+{
+	cout << min(minRepaint('B'),minRepaint('W'));
 }
 
 int main()
