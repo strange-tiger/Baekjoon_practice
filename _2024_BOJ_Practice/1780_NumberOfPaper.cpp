@@ -14,13 +14,8 @@ void input()
 	cin >> N;
 
 	for (int i = 0; i < N; ++i)
-	{
 		for (int j = 0; j < N; ++j)
-		{
 			cin >> paper[i][j];
-			++paper[i][j];
-		}
-	}
 }
 
 bool isUnified(int n, int x, int y)
@@ -35,10 +30,8 @@ bool isUnified(int n, int x, int y)
 
 void quadtree(int n, int x, int y)
 {
-	int cnt = 0;
-
 	if (isUnified(n, x, y))
-		++ans[paper[y][x]];
+		++ans[paper[y][x] + 1];
 	else
 	{
 		int size = n / 3;
