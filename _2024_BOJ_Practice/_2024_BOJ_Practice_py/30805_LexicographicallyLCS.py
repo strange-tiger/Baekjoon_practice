@@ -23,3 +23,5 @@ for i in intersec:
 
 print(len(LLCS))
 print(*LLCS)
+
+# 240605 62% 정체
