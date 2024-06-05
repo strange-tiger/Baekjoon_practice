@@ -10,7 +10,7 @@ subseq = list(set(A) & set(B))
 
 LLCS = [subseq[-1]]
 for i in range(2, len(subseq) + 1):
-    if A.index(subseq[-i]) > A.index(LLCS[-1]) and B.index(subseq[-i]) > B.index(LLCS[-1]):
+    if subseq[-i] in A[A.index(LLCS[-1]):] and subseq[-i] in B[B.index(LLCS[-1]):]:
         LLCS.append(subseq[-i])
 
 print(*LLCS)
