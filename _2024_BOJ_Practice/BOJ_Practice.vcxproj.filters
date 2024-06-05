@@ -527,8 +527,6 @@
     </ClCompile>
     <ClCompile Include="11401_BinomialCoefficient3.cpp">
       <Filter>소스 파일</Filter>
-    <ClCompile Include="11049_MatrixMultiplicationOrder.cpp">
-      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
