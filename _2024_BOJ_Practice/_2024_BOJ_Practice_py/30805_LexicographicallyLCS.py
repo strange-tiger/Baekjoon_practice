@@ -13,4 +13,5 @@ for i in range(2, len(subseq) + 1):
     if subseq[-i] in A[A.index(LLCS[-1]):] and subseq[-i] in B[B.index(LLCS[-1]):]:
         LLCS.append(subseq[-i])
 
+print(len(LLCS))
 print(*LLCS)
