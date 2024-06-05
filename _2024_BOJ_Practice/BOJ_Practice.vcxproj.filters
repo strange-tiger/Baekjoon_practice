@@ -534,5 +534,8 @@
     <ClCompile Include="30802_WelcomeKit.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="30804_FruitTanghulu.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
