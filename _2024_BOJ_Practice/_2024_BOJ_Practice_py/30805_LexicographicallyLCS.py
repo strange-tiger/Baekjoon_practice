@@ -5,31 +5,21 @@ A = list(map(int, sys.stdin.readline().rstrip().split()))
 M = int(sys.stdin.readline().rstrip())
 B = list(map(int, sys.stdin.readline().rstrip().split()))
 
-end = max(max(A), max(B)) + 1
-
-idxA = [[] for _ in range(end)]
-for i in range(len(A)):
-    idxA[A[i]].append(i)
-for i in range(1, end):
-    idxA[i].reverse()
-
-idxB = [[] for _ in range(end)]
-for i in range(len(B)):
-    idxB[B[i]].append(i)
-for i in range(1, end):
-    idxB[i].reverse()
+intersec = list(set(A) & set(B))
+intersec.sort(reverse=True)
 
 LLCS = list()
-curA = 0
-curB = 0
+idxA = idxB = -1
 
-for i in range(end - 1, 0, -1):
-    while len(idxA[i]) > 0 and idxA[i][-1] < curA:
-        idxA[i].pop()
-    for _ in range(min(len(idxA[i]), len(idxB[i]))):
-        curA = idxA[i].pop()
-        curB = idxB[i].pop()
-        LLCS.append(i)
+for i in intersec:
+    for j in range(idxA, len(A)):
+        if i == A[j] and j >= idxA:
+            for k in range(idxB, len(B)):
+                if i == B[k] and k >= idxB:
+                    idxA = j + 1
+                    idxB = k + 1
+                    LLCS.append(i)
+                    break
 
 print(len(LLCS))
 print(*LLCS)
