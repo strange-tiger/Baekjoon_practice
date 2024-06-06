@@ -9,7 +9,7 @@ intersec = list(set(A) & set(B))
 intersec.sort(reverse=True)
 
 LLCS = list()
-idxA = idxB = -1
+idxA = idxB = 0
 
 for i in intersec:
     for j in range(idxA, len(A)):
