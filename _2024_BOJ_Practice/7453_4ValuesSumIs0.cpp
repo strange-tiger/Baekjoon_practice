@@ -1,5 +1,4 @@
 #include <iostream>
-#include <map>
 #include <algorithm>
 #define MAX 4000
 #define L long long
@@ -8,7 +7,6 @@ using namespace std;
 int n, cnt = 0;
 int arr[4][MAX];
 L sum[2][MAX * MAX];
-map<L, int> hashCnt;
 
 void input()
 {
@@ -32,33 +30,36 @@ void solve()
 	int N = n * n;
 
 	sort(sum[1], sum[1] + N);
-	for (int i = 0; i < N; ++i)
-	{
-		if (hashCnt.count(sum[1][i]) == 0)
-			hashCnt[sum[1][i]] = 1;
-		else
-			hashCnt[sum[1][i]] = hashCnt[sum[1][i]] + 1;
-	}
 
 	for (int i = 0; i < N; ++i)
 	{
-		int s = -1, e = N, mid;
+		int s = 0, e = N - 1, mid;
+		int upper, lower;
 
 		while (s + 1 < e)
 		{
 			mid = (s + e) / 2;
 
-			if (sum[0][i] == -sum[1][mid])
-			{
-				s = mid;
-				cnt += hashCnt[sum[1][mid]];
-				break;
-			}
-			else if (sum[0][i] < -sum[1][mid])
+			if (sum[0][i] < -sum[1][mid])
 				s = mid;
 			else
 				e = mid;
 		}
+		lower = e;
+
+		s = 0, e = N - 1;
+		while (s + 1 < e)
+		{
+			mid = (s + e) / 2;
+
+			if (sum[0][i] <= -sum[1][mid])
+				s = mid;
+			else
+				e = mid;
+		}
+		upper = e;
+
+		cnt += upper - lower;
 	}
 
 	cout << cnt;
