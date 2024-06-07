@@ -31,33 +31,10 @@ void solve()
 
 	sort(sum[1], sum[1] + N);
 
-	for (int i = 0; i < N; ++i)
+	for (L i = 0; i < N; ++i)
 	{
-		int s = 0, e = N - 1, mid;
-		int upper, lower;
-
-		while (s + 1 < e)
-		{
-			mid = (s + e) / 2;
-
-			if (sum[0][i] < -sum[1][mid])
-				s = mid;
-			else
-				e = mid;
-		}
-		lower = e;
-
-		s = 0, e = N - 1;
-		while (s + 1 < e)
-		{
-			mid = (s + e) / 2;
-
-			if (sum[0][i] <= -sum[1][mid])
-				s = mid;
-			else
-				e = mid;
-		}
-		upper = e;
+		L lower = lower_bound(sum[1], sum[1] + N, -sum[0][i]) - sum[1];
+		L upper = upper_bound(sum[1], sum[1] + N, -sum[0][i]) - sum[1];
 
 		cnt += upper - lower;
 	}
