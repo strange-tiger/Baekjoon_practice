@@ -1,12 +1,13 @@
 #include <iostream>
 #include <algorithm>
-#define MAX 4000
+#include <vector>
 #define L long long
 using namespace std;
 
-int n, cnt = 0;
-int arr[4][MAX];
-L sum[2][MAX * MAX];
+int n;
+int arr[4001][4];
+vector<int> AB, CD;
+L cnt = 0;
 
 void input()
 {
@@ -17,26 +18,30 @@ void input()
 	cin >> n;
 
 	for (int i = 0; i < n; ++i)
-		cin >> arr[0][i] >> arr[1][i] >> arr[2][i] >> arr[3][i];
+		for (int j = 0; j < 4; ++j)
+			cin >> arr[i][j];
 
-	for (int i = 0; i < 2; ++i)
+	for (int i = 0; i < n; ++i)
+	{
 		for (int j = 0; j < n; ++j)
-			for (int k = 0; k < n; ++k)
-				sum[i][j * n + k] = arr[i * 2][j] + arr[i * 2 + 1][k];
+		{
+			AB.push_back(arr[i][0] + arr[j][1]);
+			CD.push_back(arr[i][2] + arr[j][3]);
+		}
+	}
+
+	sort(AB.begin(), AB.end());
+	sort(CD.begin(), CD.end());
 }
 
 void solve()
 {
-	int N = n * n;
-
-	sort(sum[1], sum[1] + N);
-
-	for (L i = 0; i < N; ++i)
+	for (int i = 0; i < AB.size(); ++i)
 	{
-		L lower = lower_bound(sum[1], sum[1] + N, -sum[0][i]) - sum[1];
-		L upper = upper_bound(sum[1], sum[1] + N, -sum[0][i]) - sum[1];
+		int start = lower_bound(CD.begin(), CD.end(), -AB[i]) - CD.begin();
+		int end = upper_bound(CD.begin(), CD.end(), -AB[i]) - CD.begin();
 
-		cnt += upper - lower;
+		cnt += end - start;
 	}
 
 	cout << cnt;
