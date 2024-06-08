@@ -1,28 +1,13 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
-#define MAX 1000001
+#define MAX 1000000
 using namespace std;
 
-int N, tmp, idx;
+int N, cnt = 0;
 int A[MAX];
-vector<int> X, ans;
-
-int binarySearch(int k)
-{
-	int lo = 0, hi = X.size() - 1, mid;
-
-	while (lo < hi)
-	{
-		mid = (lo + hi) / 2;
-
-		if (X[mid] >= k)
-			hi = mid;
-		else
-			lo = mid + 1;
-	}
-
-	return hi;
-}
+int dp[MAX];
+vector<int> ans;
 
 void input()
 {
@@ -37,28 +22,29 @@ void input()
 
 void solve()
 {
-	X.push_back(A[0]);
-	ans.push_back(A[0]);
-
-	for (int i = 1; i < N; ++i)
+	for (int i = 0; i < N; ++i)
 	{
-		if (A[i] > X.back())
+		dp[i] = 1;
+
+		for (int j = 0; j < i; ++j)
+			if (A[i] > A[j])
+				dp[i] = max(dp[i], dp[j] + 1);
+
+		cnt = max(cnt, dp[i]);
+	}
+
+	cout << cnt << '\n';
+
+	for (int i = N - 1; i >= 0; --i)
+	{
+		if (dp[i] == cnt)
 		{
-			X.push_back(A[i]);
-			
-			for (int j = 0; j < ans.size(); ++j)
-				ans[j] = X[j];
 			ans.push_back(A[i]);
-		}
-		else
-		{
-			idx = binarySearch(A[i]);
-			X[idx] = A[i];
+			--cnt;
 		}
 	}
 
-	cout << X.size() << '\n';
-	for (int i = 0; i < ans.size(); ++i)
+	for (int i = ans.size() - 1; i >= 0; --i)
 		cout << ans[i] << ' ';
 }
 
