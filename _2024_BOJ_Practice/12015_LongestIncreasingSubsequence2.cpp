@@ -4,7 +4,8 @@
 using namespace std;
 
 int N, tmp, idx;
-vector<int> A, ans;
+int A[MAX];
+vector<int> ans;
 
 int binarySearch(int k)
 {
@@ -16,7 +17,8 @@ int binarySearch(int k)
 
 		if (ans[mid] >= k)
 			hi = mid;
-		else lo = mid + 1;
+		else
+			lo = mid + 1;
 	}
 
 	return hi;
@@ -30,15 +32,12 @@ void input()
 
 	cin >> N;
 	for (int i = 0; i < N; ++i)
-	{
-		cin >> tmp;
-		A.push_back(tmp);
-	}
+		cin >> A[i];
 }
 
 void solve()
 {
-	ans.push_back(A.front());
+	ans.push_back(A[0]);
 
 	for (int i = 1; i < N; ++i)
 	{
