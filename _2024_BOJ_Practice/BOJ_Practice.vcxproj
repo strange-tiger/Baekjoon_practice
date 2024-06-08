@@ -196,7 +196,7 @@
     <ClCompile Include="11054_LongestBitonicSubsequence.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="11055_BiggestBitonicSubsequencs.cpp">
+    <ClCompile Include="11055_BiggestIncreasingSubsequencs.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="1107_RemoteController.cpp">
@@ -247,6 +247,7 @@
     <ClCompile Include="1198_CutTriangle.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="12015_LongestIncreasingSubsequence2.cpp" />
     <ClCompile Include="1238_Party.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

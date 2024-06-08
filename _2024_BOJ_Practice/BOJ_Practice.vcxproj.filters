@@ -399,7 +399,7 @@
     <ClCompile Include="2293_Coin1.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="11055_BiggestBitonicSubsequencs.cpp">
+    <ClCompile Include="11055_BiggestIncreasingSubsequencs.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="10830_MatrixSquare.cpp">
@@ -538,6 +538,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="7453_4ValuesSumIs0.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="12015_LongestIncreasingSubsequence2.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

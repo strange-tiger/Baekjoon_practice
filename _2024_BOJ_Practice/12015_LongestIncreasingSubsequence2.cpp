@@ -3,9 +3,10 @@
 #define MAX 1000000
 using namespace std;
 
-int N, ans = 0;
+int N, ans = 0, idx;
 int A[MAX];
-int dp[MAX];
+int X[MAX] = { 0 };
+
 
 void input()
 {
@@ -22,13 +23,16 @@ void solve()
 {
 	for (int i = 0; i < N; ++i)
 	{
-		dp[i] = 1;
-		
-		for (int j = 0; j < i; ++j)
-			if (A[i] > A[j])
-				dp[i] = max(dp[i], dp[j] + 1);
-
-		ans = max(ans, dp[i]);
+		if (A[i] > X[ans])
+		{
+			++ans;
+			X[ans] = A[i];
+		}
+		else
+		{
+			idx = upper_bound(X, X + i, A[i]) - X - 1;
+			X[idx] = min(X[idx], A[i]);
+		}
 	}
 
 	cout << ans;
