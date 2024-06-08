@@ -45,20 +45,15 @@ void solve()
 		if (A[i] > X.back())
 		{
 			X.push_back(A[i]);
+			
+			for (int j = 0; j < ans.size(); ++j)
+				ans[j] = X[j];
 			ans.push_back(A[i]);
 		}
 		else
 		{
 			idx = binarySearch(A[i]);
 			X[idx] = A[i];
-
-			if (idx == X.size() - 1)
-			{
-				ans.clear();
-
-				for (int j = 0; j < X.size(); ++j)
-					ans.push_back(X[j]);
-			}
 		}
 	}
 
