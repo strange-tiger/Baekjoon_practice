@@ -1,12 +1,28 @@
 #include <iostream>
 #include <algorithm>
-#define MAX 1000000
+#define MAX 1000001
 using namespace std;
 
-int N, ans = 0, idx;
+int N, idx, ans = 0;
 int A[MAX];
-int X[MAX] = { 0 };
+int X[MAX];
 
+int binarySearch(int key)
+{
+	int lo = 0, hi = ans - 1, mid;
+
+	while (lo + 1 < hi)
+	{
+		mid = (lo + hi) / 2;
+
+		if (X[mid] > key)
+			hi = mid;
+		else
+			lo = mid + 1;
+	}
+
+	return hi;
+}
 
 void input()
 {
@@ -21,17 +37,19 @@ void input()
 
 void solve()
 {
-	for (int i = 0; i < N; ++i)
+	X[1] = A[0];
+	ans = 1;
+
+	for (int i = 1; i < N; ++i)
 	{
 		if (A[i] > X[ans])
 		{
-			++ans;
-			X[ans] = A[i];
+			X[++ans] = A[i];
 		}
 		else
 		{
-			idx = upper_bound(X, X + i, A[i]) - X - 1;
-			X[idx] = min(X[idx], A[i]);
+			idx = binarySearch(A[i]);
+			X[idx] = A[i];
 		}
 	}
 
