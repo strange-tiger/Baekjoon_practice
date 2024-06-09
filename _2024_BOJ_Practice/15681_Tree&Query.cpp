@@ -39,8 +39,6 @@ void dfs(int node)
 		++cnt;
 	}
 
-	if (cnt == 0)
-		dp[node] = 1;
 	if (parent[node] > 0)
 		dp[parent[node]] += dp[node];
 }
@@ -52,6 +50,9 @@ int childNum(int u)
 
 void solve()
 {
+	for (int i = 1; i <= N; ++i)
+		dp[i] = 1;
+
 	parent[R] = -1;
 	dfs(R);
 
