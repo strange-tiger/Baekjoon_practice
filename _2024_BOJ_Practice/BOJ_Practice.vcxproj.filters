@@ -552,5 +552,8 @@
     <ClCompile Include="11722_LongestDecreasingSubsequence.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="9466_TermProject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
