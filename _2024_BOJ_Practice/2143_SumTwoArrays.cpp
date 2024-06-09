@@ -1,11 +1,13 @@
 #include <iostream>
-#include <set>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int T, N, M, cnt = 0;
-int sumA[1001];
-int sumB[1001];
-multiset<int> setA;
+int A[1001] = { 0 };
+int B[1001] = { 0 };
+vector<int> sumA;
+vector<int> sumB;
 
 void input()
 {
@@ -16,19 +18,17 @@ void input()
 	cin >> T;
 
 	cin >> N;
-	sumA[0] = 0;
 	for (int i = 1; i <= N; ++i)
 	{
-		cin >> sumA[i];
-		sumA[i] += sumA[i - 1];
+		cin >> A[i];
+		A[i] += A[i - 1];
 	}
 
 	cin >> M;
-	sumB[0] = 0;
 	for (int i = 1; i <= M; ++i)
 	{
-		cin >> sumB[i];
-		sumB[i] += sumB[i - 1];
+		cin >> B[i];
+		B[i] += B[i - 1];
 	}
 }
 
@@ -36,17 +36,42 @@ void solve()
 {
 	for (int i = 0; i < N; ++i)
 		for (int j = i + 1; j <= N; ++j)
-			setA.insert(sumA[j] - sumA[i]);
+			sumA.push_back(A[j] - A[i]);
 
-	int numB;
 	for (int i = 0; i < M; ++i)
-	{
 		for (int j = i + 1; j <= M; ++j)
-		{
-			numB = sumB[j] - sumB[i];
+			sumB.push_back(B[j] - B[i]);
 
-			if (setA.count(T - numB))
-				cnt += setA.count(T - numB);
+	sort(sumA.begin(), sumA.end());
+	sort(sumB.begin(), sumB.end());
+
+	int s = 0, e = sumB.size() - 1;
+	while (s < sumA.size() && e >= 0)
+	{
+		if (sumA[s] + sumB[e] > T)
+			--e;
+		else if (sumA[s] + sumB[e] < T)
+			++s;
+		else
+		{
+			int valA, valB, cntA = 0, cntB = 0;
+
+			valA = sumA[s];
+			valB = sumB[e];
+
+			while (s < sumA.size() && valA == sumA[s])
+			{
+				++s;
+				++cntA;
+			}
+
+			while (e >= 0 && valB == sumB[e])
+			{
+				--e;
+				++cntB;
+			}
+
+			cnt += cntA * cntB;
 		}
 	}
 
