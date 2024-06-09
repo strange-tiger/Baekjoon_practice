@@ -3,11 +3,12 @@
 #include <algorithm>
 using namespace std;
 
-int T, N, M, cnt = 0;
+int T, N, M;
 int A[1001] = { 0 };
 int B[1001] = { 0 };
-vector<int> sumA;
-vector<int> sumB;
+long long cnt = 0;
+vector<long long> sumA;
+vector<long long> sumB;
 
 void input()
 {
@@ -54,10 +55,10 @@ void solve()
 			++s;
 		else
 		{
-			int valA, valB, cntA = 0, cntB = 0;
-
-			valA = sumA[s];
-			valB = sumB[e];
+			int valA = sumA[s];
+			int valB = sumB[e];
+			long long cntA = 0;
+			long long cntB = 0;
 
 			while (s < sumA.size() && valA == sumA[s])
 			{
