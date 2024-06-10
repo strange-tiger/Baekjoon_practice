@@ -29,14 +29,12 @@ void input()
 void dfs(int node)
 {
 	isVisited[node] = true;
-	int cnt = 0;
 	for (int next : g[node])
 	{
 		if (isVisited[next])
 			continue;
 		parent[next] = node;
 		dfs(next);
-		++cnt;
 	}
 
 	if (parent[node] > 0)
