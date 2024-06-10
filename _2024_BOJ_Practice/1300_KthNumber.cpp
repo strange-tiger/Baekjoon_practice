@@ -1,9 +1,8 @@
 #include <iostream>
-#include <queue>
+#include <algorithm>
 using namespace std;
 
 int N, K;
-priority_queue<long long, vector<long long>, greater<long long>> heap;
 
 void input()
 {
@@ -14,16 +13,29 @@ void input()
 	cin >> N >> K;
 }
 
+int count(int num)
+{
+	int cnt = 0;
+	for (int i = 1; i <= N; ++i)
+		cnt += min(num / i, N);
+	return cnt;
+}
+
 void solve()
 {
-	for (int i = 1; i <= N; ++i)
-		for (int j = 1; j <= N; ++j)
-			heap.push(i * j);
+	long long lo = 1, hi = N * N, mid;
 
-	while(K--)
-		heap.pop();
+	while (lo + 1 < hi)
+	{
+		mid = (lo + hi) / 2;
 
-	cout << heap.top();
+		if (count(mid) > K)
+			hi = mid;
+		else
+			lo = mid;
+	}
+
+	cout << hi;
 }
 
 int main()
