@@ -29,7 +29,7 @@ void solve()
 	{
 		mid = (lo + hi) / 2;
 
-		if (count(mid) > K)
+		if (count(mid) >= K)
 			hi = mid;
 		else
 			lo = mid;
