@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 
-int N, K;
+long long N, K;
 
 void input()
 {
@@ -13,9 +13,9 @@ void input()
 	cin >> N >> K;
 }
 
-int count(int num)
+long long count(long long num)
 {
-	int cnt = 0;
+	long long cnt = 0;
 	for (int i = 1; i <= N; ++i)
 		cnt += min(num / i, N);
 	return cnt;
@@ -25,17 +25,17 @@ void solve()
 {
 	long long lo = 1, hi = N * N, mid;
 
-	while (lo + 1 < hi)
+	while (lo <= hi)
 	{
 		mid = (lo + hi) / 2;
 
 		if (count(mid) >= K)
-			hi = mid;
+			hi = mid - 1;
 		else
-			lo = mid;
+			lo = mid + 1;
 	}
 
-	cout << hi;
+	cout << lo;
 }
 
 int main()
