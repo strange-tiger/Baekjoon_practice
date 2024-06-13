@@ -253,6 +253,7 @@
     <ClCompile Include="12015_LongestIncreasingSubsequence2.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="12100_2048(Easy).cpp" />
     <ClCompile Include="1238_Party.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
