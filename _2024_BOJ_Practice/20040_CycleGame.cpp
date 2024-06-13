@@ -28,7 +28,7 @@ void merge(int a, int b)
 	}
 }
 
-void input()
+int main()
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
@@ -44,21 +44,15 @@ void input()
 	{
 		cin >> a >> b;
 
-		if (!isCycle && (findParent(a) == b || findParent(b) == a))
-			ans = i + 1;
+		if (findParent(a) == findParent(b))
+		{
+			cout << i + 1;
+			return 0;
+		}
 
 		merge(a, b);
 	}
-}
+	cout << 0;
 
-void solve()
-{
-	cout << ans;
-}
-
-int main()
-{
-	input();
-	solve();
 	return 0;
 }
