@@ -579,5 +579,8 @@
     <ClCompile Include="17299_NGF.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="11066_MergingFiles.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
