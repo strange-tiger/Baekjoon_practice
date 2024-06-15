@@ -585,5 +585,8 @@
     <ClCompile Include="3273_SumX.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2470_TwoSolutions.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
