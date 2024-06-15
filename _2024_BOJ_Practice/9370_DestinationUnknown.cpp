@@ -1,66 +1,98 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <queue>
 #define MAX 2001
 #define INF 1e9
 using namespace std;
 
 int T, n, m, t, s, g, h, a, b, d, tmp;
-int dist[MAX][MAX];
-vector<int> x;
+int distS[MAX];
+int distG[MAX];
+int distH[MAX];
+vector<pair<int, int>> graph[MAX];
+priority_queue<int, vector<int>, greater<int>> x;
 
-void floydWarshall()
+void init()
 {
-	for (int i = 1; i <= n; ++i)
-		for (int j = 1; j <= n; ++j)
-			for (int k = 1; k <= n; ++k)
-				dist[j][k] = min(dist[j][k], dist[j][i] + dist[i][k]);
+	for (int i = 0; i < MAX; ++i)
+	{
+		graph[i].clear();
+		distS[i] = INF;
+		distG[i] = INF;
+		distH[i] = INF;
+	}
+}
+
+void dijkstra(int start, int dist[MAX])
+{
+	priority_queue<pair<int, int>> heap;
+	heap.push({ 0, start });
+	dist[start] = 0;
+
+	int curDist, curNode, nxtDist, nxtNode;
+	while (!heap.empty())
+	{
+		curDist = -heap.top().first;
+		curNode = heap.top().second;
+		heap.pop();
+
+		for (int i = 0; i < graph[curNode].size(); ++i)
+		{
+			nxtDist = curDist + graph[curNode][i].first;
+			nxtNode = graph[curNode][i].second;
+
+			if (dist[nxtNode] > nxtDist)
+			{
+				dist[nxtNode] = nxtDist;
+				heap.push({ -nxtDist, nxtNode });
+			}
+		}
+	}
 }
 
 void input()
 {
+	init();
+
 	cin >> n >> m >> t;
 	cin >> s >> g >> h;
-
-	for (int i = 0; i <= n; ++i)
-	{
-		for (int j = 0; j <= n; ++j)
-			dist[i][j] = INF;
-		if (i != 0)
-			dist[i][i] = 0;
-	}
 
 	for (int i = 0; i < m; ++i)
 	{
 		cin >> a >> b >> d;
-		dist[a][b] = min(dist[a][b], d);
-		dist[b][a] = min(dist[b][a], d);
+		graph[a].push_back({ d, b });
+		graph[b].push_back({ d, a });
 	}
 
 	for (int i = 0; i < t; ++i)
 	{
 		cin >> tmp;
-		x.push_back(tmp);
+		x.push(tmp);
 	}
-	sort(x.begin(), x.end());
 }
 
-bool check(int start, int end)
+bool check(int end)
 {
-	return (dist[start][end] == dist[start][g] + dist[g][h] + dist[h][end]
-		|| dist[start][end] == dist[start][h] + dist[h][g] + dist[g][end]);
+	return (distS[end] == distS[g] + distG[h] + distH[end]
+		|| distS[end] == distS[h] + distH[g] + distG[end]);
 }
 
 void solve()
 {
-	floydWarshall();
+	dijkstra(s, distS);
+	dijkstra(g, distG);
+	dijkstra(h, distH);
 
-	for (int i : x)
-		if (check(s, i))
-			cout << i << ' ';
+	while (!x.empty())
+	{
+		int dest = x.top();
+		x.pop();
+
+		if (check(dest))
+			cout << dest << ' ';
+	}
 	cout << '\n';
-
-	x.clear();
 }
 
 int main()
