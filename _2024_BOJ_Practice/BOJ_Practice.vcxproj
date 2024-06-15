@@ -673,6 +673,7 @@
     <ClCompile Include="9252_LCS2.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="9370_DestinationUnknown.cpp" />
     <ClCompile Include="9372_Sanggun%27sTrip.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
