@@ -1,11 +1,12 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#define L long long
 using namespace std;
 
-int N, cnt = 0;
-int prime[4000001] = { 0 };
-vector<int> primeSeq;
+L N, cnt = 0;
+L prime[4000001] = { 0 };
+vector<L> primeSeq;
 
 void getPrime(int num)
 {
@@ -38,8 +39,8 @@ void input()
 
 void solve()
 {
-	int s = 0, e = 0;
-	long long sum;
+	L s = 0, e = 0;
+	L sum;
 
 	while (s <= e)
 	{
