@@ -38,26 +38,23 @@ void input()
 
 void solve()
 {
-	int s = 0, e = 0, sum;
+	int s = 0, e = 0;
+	long long sum;
 
 	while (s <= e)
 	{
+		if (e >= primeSeq.size())
+			break;
+
 		sum = 0;
 
 		for (int i = s; i <= e; ++i)
 			sum += primeSeq[i];
 
 		if (sum < N)
-		{
 			++e;
-
-			if (e == primeSeq.size())
-				break;
-		}
 		else if (sum > N)
-		{
 			++s;
-		}
 		else
 		{
 			++cnt;
