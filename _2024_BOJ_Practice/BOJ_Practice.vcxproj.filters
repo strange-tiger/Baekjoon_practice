@@ -600,5 +600,8 @@
     <ClCompile Include="1956_Exercise.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1520_Downhill.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
