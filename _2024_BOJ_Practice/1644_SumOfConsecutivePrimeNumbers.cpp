@@ -4,9 +4,9 @@
 #define L long long
 using namespace std;
 
-L N, cnt = 0;
-L prime[4000001] = { 0 };
-vector<L> primeSeq;
+int N, cnt = 0;
+int prime[4000001] = { 0 };
+vector<int> primeSeq;
 
 void getPrime(int num)
 {
@@ -19,6 +19,9 @@ void getPrime(int num)
 			continue;
 		else
 			primeSeq.push_back(prime[i]);
+
+		if ((L)(i)*i > 2e9)
+			continue;
 
 		for (int j = i * i; j <= num; j += i)
 		{
@@ -39,7 +42,7 @@ void input()
 
 void solve()
 {
-	L s = 0, e = 0;
+	int s = 0, e = 0;
 	L sum;
 
 	while (s <= e)
