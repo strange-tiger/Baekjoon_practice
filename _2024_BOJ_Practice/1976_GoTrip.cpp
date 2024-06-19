@@ -14,8 +14,8 @@ int Find(int x)
 
 void Union(int x, int y)
 {
-	x = parent[x];
-	y = parent[y];
+	x = Find(x);
+	y = Find(y);
 
 	if (x < y)
 		parent[y] = parent[x];
@@ -32,13 +32,13 @@ void input()
 	cin >> N;
 	cin >> M;
 
-	for (int i = 0; i < N; ++i)
+	for (int i = 1; i <= N; ++i)
 		parent[i] = i;
 
 	int connect;
-	for (int i = 0; i < N; ++i)
+	for (int i = 1; i <= N; ++i)
 	{
-		for (int j = 0; j < N; ++j)
+		for (int j = 1; j <= N; ++j)
 		{
 			cin >> connect;
 
