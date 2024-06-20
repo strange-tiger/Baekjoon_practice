@@ -11,20 +11,23 @@ L getRect(L left, L right)
 	L mid = (left + right) / 2;
 	L height = h[mid];
 	L area = h[mid];
-	L l = mid - 1, r = mid;
+	L l = mid - 1, r = mid + 1;
 
-	if (left == mid)
-		return h[mid];
+	if (left >= right - 1)
+		return area;
 
-	while (l >= left and r <= right)
+	while (l > left || r < right)
 	{
-		height = min(height, max(h[l], h[r]));
-		
-		if (h[l] > h[r])
-			--l;
+		if (l <= left || (r < right && h[l] <= h[r]))
+		{
+			height = min(height, h[r]);
+			r++;
+		}
 		else
-			++r;
-
+		{
+			height = min(height, h[l]);
+			l--;
+		}
 		L width = r - l - 1;
 		area = max(area, width * height);
 	}
@@ -39,9 +42,9 @@ int main()
 
 	while (cin >> n, n != 0)
 	{
-		for (int i = 0; i < n; ++i)
+		for (int i = 1; i <= n; ++i)
 			cin >> h[i];
-		cout << getRect(0, n) << '\n';
+		cout << getRect(0, n + 1) << '\n';
 	}
 
 	return 0;
