@@ -10,37 +10,25 @@ L getRect(L left, L right)
 {
 	L mid = (left + right) / 2;
 	L height = h[mid];
+	L area = h[mid];
 	L l = mid - 1, r = mid;
-	L width = 2;
-	L lh = 0, rh = 0, minh = min(h[l], h[r]);
-	L area = width * minh;
 
-	if (mid == left)
+	if (left == mid)
 		return h[mid];
 
-	while (l >= 0 && r < n)
+	while (l >= left and r <= right)
 	{
-		if (l > 0)
-			lh = h[l - 1];
-		else
-			lh = 0;
-
-		if (r < n - 1)
-			rh = h[r + 1];
-		else
-			rh = 0;
-
-		minh = min(minh, max(lh, rh));
-
-		if (lh > rh)
+		height = min(height, max(h[l], h[r]));
+		
+		if (h[l] > h[r])
 			--l;
 		else
 			++r;
 
-		++width;
-		area = max(area, width * minh);
+		L width = r - l - 1;
+		area = max(area, width * height);
 	}
-	return max(max(getRect(left, mid - 1), getRect(mid, right)), area);
+	return max(max(getRect(left, mid), getRect(mid, right)), area);
 }
 
 int main()
