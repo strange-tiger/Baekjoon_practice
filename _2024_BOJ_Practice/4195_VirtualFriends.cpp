@@ -22,12 +22,7 @@ void Union(int a, int b)
 	a = Find(a);
 	b = Find(b);
 
-	if (a > b)
-	{
-		parent[a] = b;
-		friends[b] += friends[a];
-	}
-	else
+	if (a != b)
 	{
 		parent[b] = a;
 		friends[a] += friends[b];
