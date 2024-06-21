@@ -2,10 +2,8 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <set>
 #include <algorithm>
-#define F first
-#define S second
+
 using namespace std;
 
 bool cmp(pair<int, pair<int, int>> a, pair<int, pair<int, int>> b)
@@ -27,8 +25,8 @@ vector<int> solution(vector<string> genres, vector<int> plays) {
 
     for (string g : genres)
         genreNum[g] = 0;
-    for (string g : genres)
-        ++genreNum[g];
+    for (int i = 0; i < plays.size(); ++i)
+        genreNum[genres[i]] += plays[i];
 
     vector<pair<int, pair<int, int>>> album;
 
