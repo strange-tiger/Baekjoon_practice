@@ -648,5 +648,8 @@
     <ClCompile Include="1748_broj.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="3085_BOMBONI.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
