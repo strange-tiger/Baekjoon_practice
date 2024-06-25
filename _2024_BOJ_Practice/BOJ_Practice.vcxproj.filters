@@ -654,5 +654,8 @@
     <ClCompile Include="programmers_Process.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1051_NumberSquare.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
