@@ -769,6 +769,7 @@
     <ClCompile Include="programmers_RightBracket.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="programmers_StockPrice.cpp" />
     <ClCompile Include="programmers_TruckCrossingBridge.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
