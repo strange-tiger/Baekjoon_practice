@@ -1,22 +1,27 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 using namespace std;
 
 vector<int> solution(vector<int> prices)
 {
-    vector<int> answer(prices.size(), 0);
-    vector<bool> notDown(prices.size(), true);
+    int length = prices.size();
+    vector<int> answer(length);
+    stack<int> notDown;
 
-    for (int i = 0; i < prices.size(); ++i)
+    for (int i = 0; i < length; ++i)
+        answer[i] = length - i - 1;
+
+    notDown.push(0);
+
+    for (int i = 1; i < length; ++i)
     {
-        for (int j = 0; j < i; ++j)
+        while (!notDown.empty() && prices[i] < prices[notDown.top()])
         {
-            if (notDown[j])
-                ++answer[j];
-
-            if (prices[j] > prices[i])
-                notDown[j] = false;
+            answer[notDown.top()] = i - notDown.top();
+            notDown.pop();
         }
+        notDown.push(i);
     }
 
     return answer;
