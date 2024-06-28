@@ -663,5 +663,8 @@
     <ClCompile Include="programmers_StockPrice.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="8979_Olympic.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
