@@ -20,7 +20,6 @@ void bfs(int x, int y)
 		x = q.front().first;
 		y = q.front().second;
 		q.pop();
-		isVisited[y][x] = true;
 
 		for (int i = 0; i < 4; ++i)
 		{
@@ -28,8 +27,13 @@ void bfs(int x, int y)
 			int ny = y + dy[i];
 
 			if (nx >= 0 && nx < M && ny >= 0 && ny < N)
+			{
 				if (cabbage[ny][nx] == 1 && !isVisited[ny][nx])
+				{
 					q.push({ nx, ny });
+					isVisited[ny][nx] = true;
+				}
+			}
 		}
 	}
 }
