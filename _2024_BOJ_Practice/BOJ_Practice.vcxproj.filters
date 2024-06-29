@@ -672,5 +672,8 @@
     <ClCompile Include="1012_OrganicCabbage_DFS%28stack%29.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1012_OrganicCabbage_DFS(recursion).cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
