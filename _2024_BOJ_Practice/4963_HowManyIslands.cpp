@@ -1,6 +1,5 @@
 #include <iostream>
 #include <queue>
-#include <utility>
 using namespace std;
 
 int w, h;
@@ -48,10 +47,13 @@ void bfs(int x, int y)
 			nx = x + dx[i];
 			ny = y + dy[i];
 
-			if (map[ny][nx] == 1 && !isVisited[ny][nx])
+			if (nx >= 0 && ny >= 0 && nx < w && ny < h)
 			{
-				isVisited[ny][nx] = true;
-				q.push({ nx, ny });
+				if (map[ny][nx] == 1 && !isVisited[ny][nx])
+				{
+					isVisited[ny][nx] = true;
+					q.push({ nx, ny });
+				}
 			}
 		}
 	}
@@ -87,4 +89,6 @@ int main()
 		input();
 		solve();
 	}
+
+	return 0;
 }
