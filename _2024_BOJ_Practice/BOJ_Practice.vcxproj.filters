@@ -693,5 +693,8 @@
     <ClCompile Include="14503_RoboticVacuum.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2490_Yutgame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
