@@ -100,15 +100,14 @@ void solve()
 			}
 		}
 
-		int x, y;
+		pair<int, int> p;
 		for (int i = 0; i < N; ++i)
 		{
 			for (int j = 0; j < N; ++j)
 			{
-				x = parent[i][j].first;
-				y = parent[i][j].second;
+				p = findParent({ j, i });
 
-				A[i][j] = unionNum[y][x][1] / unionNum[y][x][0];
+				A[i][j] = unionNum[p.second][p.first][1] / unionNum[p.second][p.first][0];
 			}
 		}
 
