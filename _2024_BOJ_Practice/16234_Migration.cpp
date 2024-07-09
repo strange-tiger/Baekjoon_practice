@@ -52,16 +52,23 @@ void merge(pair<int, int> a, pair<int, int> b)
 	if (x != y)
 	{
 		if (x.second < y.second)
+		{
 			parent[y.second][y.first] = x;
+			unionNum[x.second][x.first][0] += unionNum[y.second][y.first][0];
+			unionNum[x.second][x.first][1] += unionNum[y.second][y.first][1];
+		}
 		else if (x.second == y.second && x.first < y.first)
+		{
 			parent[y.second][y.first] = x;
+			unionNum[x.second][x.first][0] += unionNum[y.second][y.first][0];
+			unionNum[x.second][x.first][1] += unionNum[y.second][y.first][1];
+		}
 		else
+		{
 			parent[x.second][x.first] = y;
-
-		unionNum[x.second][x.first][0] += unionNum[y.second][y.first][0];
-		unionNum[y.second][y.first][0] = unionNum[x.second][x.first][0];
-		unionNum[x.second][x.first][1] += unionNum[y.second][y.first][1];
-		unionNum[y.second][y.first][1] = unionNum[x.second][x.first][1];
+			unionNum[y.second][y.first][0] += unionNum[x.second][x.first][0];
+			unionNum[y.second][y.first][1] += unionNum[x.second][x.first][1];
+		}
 	}
 }
 
@@ -93,9 +100,17 @@ void solve()
 			}
 		}
 
+		int x, y;
 		for (int i = 0; i < N; ++i)
+		{
 			for (int j = 0; j < N; ++j)
-				A[i][j] = unionNum[i][j][1] / unionNum[i][j][0];
+			{
+				x = parent[i][j].first;
+				y = parent[i][j].second;
+
+				A[i][j] = unionNum[y][x][1] / unionNum[y][x][0];
+			}
+		}
 
 		if (isDif)
 			++ans;
