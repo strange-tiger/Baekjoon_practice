@@ -702,5 +702,8 @@
     <ClCompile Include="16234_Migration.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="1268_TemporaryClassPresident.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
