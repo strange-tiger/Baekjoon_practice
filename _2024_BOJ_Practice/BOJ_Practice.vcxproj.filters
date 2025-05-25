@@ -708,5 +708,14 @@
     <ClCompile Include="2776_MemorizationKing.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="2696_Median.cpp.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="2075_NthNumber.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="11062_CardGame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
