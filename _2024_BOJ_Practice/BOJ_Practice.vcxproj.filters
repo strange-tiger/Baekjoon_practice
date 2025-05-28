@@ -720,5 +720,17 @@
     <ClCompile Include="1725_HistogramStack.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="20944_PalindromAnti-appeasemenSteles.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="13018_WeirdSequence.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="28065_SWSequence.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="30618_donstructive.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
